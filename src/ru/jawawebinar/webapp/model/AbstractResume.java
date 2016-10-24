@@ -18,6 +18,10 @@ public abstract class AbstractResume implements Resume {
     protected String middleName;
     //protected String fullName;
     protected Date birthDay;
+    protected String objective;
+    protected String achievement;
+    protected String qualification;
+    protected String education;
 
     public String getFirstName() {
         return firstName;
@@ -57,7 +61,7 @@ public abstract class AbstractResume implements Resume {
 
     public String getStrBirthDay() {
         SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT1, Locale.getDefault());
-        return dateFormat.format(getStrBirthDay());
+        return dateFormat.format(getBirthDay());
     }
 
     public void setBirthDay(Date birthDay) {
