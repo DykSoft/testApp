@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d7d9026-15aa-4db4-87bd-475bf052cd29" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/AbstractResume.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Achievement.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Education.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Objective.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Qualification.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Main.java" afterPath="$PROJECT_DIR$/src/main/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Resume.java" afterPath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Resume.java" />
     </list>
     <ignored path="testApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -630,7 +623,7 @@
       <workItem from="1477163772637" duration="3836000" />
       <workItem from="1477341007685" duration="4254000" />
       <workItem from="1477512721936" duration="2893000" />
-      <workItem from="1477516342268" duration="859000" />
+      <workItem from="1477516342268" duration="875000" />
     </task>
     <task id="LOCAL-00001" summary="Add class">
       <created>1476296007098</created>
@@ -716,11 +709,18 @@
       <option name="project" value="LOCAL" />
       <updated>1477344883794</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Resume">
+      <created>1477517240691</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1477517240691</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25735000" />
+    <option name="totallyTimeSpent" value="25751000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
