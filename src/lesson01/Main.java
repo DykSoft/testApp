@@ -1,6 +1,4 @@
-package main;
-
-import ru.jawawebinar.webapp.model.Resume;
+package lesson01;
 
 public class Main {
 
@@ -14,17 +12,5 @@ public class Main {
         System.out.println(raceCar.getSpeed());
         raceCar.getDescription();
         simpleCar.getDescription();
-
-
-
-        Resume resume = new Achievement("Achievement");
-
-        resume.setDescription("123");
-        resume.setDescription("234");
-        resume.getDescription();
-
-
-
-
        }
 }
