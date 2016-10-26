@@ -1,5 +1,7 @@
 package main;
 
+import ru.jawawebinar.webapp.model.Resume;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -12,6 +14,16 @@ public class Main {
         System.out.println(raceCar.getSpeed());
         raceCar.getDescription();
         simpleCar.getDescription();
+
+
+
+        Resume resume = new Achievement("Achievement");
+
+        resume.setDescription("123");
+        resume.setDescription("234");
+        resume.getDescription();
+
+
 
 
        }
