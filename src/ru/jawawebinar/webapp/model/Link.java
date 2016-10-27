@@ -26,15 +26,15 @@ public class Link {
 
         Link link = (Link) o;
 
-        if (name != null ? !name.equals(link.name) : link.name != null) return false;
-        return url.equals(link.url);
+        if (!name.equals(link.name)) return false;
+        return url != null ? url.equals(link.url) : link.url == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + url.hashCode();
+        int result = name.hashCode();
+        result = 31 * result + (url != null ? url.hashCode() : 0);
         return result;
     }
 }
