@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5d7d9026-15aa-4db4-87bd-475bf052cd29" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lesson02/Main.java" afterPath="$PROJECT_DIR$/src/lesson02/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Link.java" afterPath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Link.java" />
     </list>
     <ignored path="testApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -688,7 +686,7 @@
       <workItem from="1477341007685" duration="4254000" />
       <workItem from="1477512721936" duration="2893000" />
       <workItem from="1477516342268" duration="3774000" />
-      <workItem from="1477598436495" duration="1800000" />
+      <workItem from="1477598436495" duration="1827000" />
     </task>
     <task id="LOCAL-00001" summary="Add class">
       <created>1476296007098</created>
@@ -802,11 +800,18 @@
       <option name="project" value="LOCAL" />
       <updated>1477520133862</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Implement equals">
+      <created>1477600482545</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1477600482545</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30450000" />
+    <option name="totallyTimeSpent" value="30477000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -860,7 +865,8 @@
     <MESSAGE value="Add class" />
     <MESSAGE value="class" />
     <MESSAGE value="Resume" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resume" />
+    <MESSAGE value="Implement equals" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement equals" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
