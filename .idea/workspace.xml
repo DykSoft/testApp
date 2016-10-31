@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5d7d9026-15aa-4db4-87bd-475bf052cd29" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/ContactType.java" afterPath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/ContactType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lesson03/Main.java" afterPath="$PROJECT_DIR$/src/lesson03/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Link.java" afterPath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Link.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/MultiTextSection.java" afterPath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/MultiTextSection.java" />
     </list>
     <ignored path="testApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,40 +45,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Organization.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Organization.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1477948864854" expanded="false" signature="597:608" placeholder=" { " />
-                <marker date="1477948864854" expanded="false" signature="621:627" placeholder=" }" />
-                <marker date="1477948864854" expanded="false" signature="665:676" placeholder=" { " />
-                <marker date="1477948864854" expanded="false" signature="695:701" placeholder=" }" />
-                <marker date="1477948864854" expanded="false" signature="729:740" placeholder=" { " />
-                <marker date="1477948864854" expanded="false" signature="753:759" placeholder=" }" />
-                <marker date="1477948864854" expanded="false" signature="797:808" placeholder=" { " />
-                <marker date="1477948864854" expanded="false" signature="827:833" placeholder=" }" />
-                <marker date="1477948864854" expanded="false" signature="863:874" placeholder=" { " />
-                <marker date="1477948864854" expanded="false" signature="887:893" placeholder=" }" />
-                <marker date="1477948864854" expanded="false" signature="933:944" placeholder=" { " />
-                <marker date="1477948864854" expanded="false" signature="963:969" placeholder=" }" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrganizationPeriod.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/OrganizationPeriod.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Section.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Section.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -87,24 +55,48 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MultiTextSection.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/MultiTextSection.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lesson02/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="365">
+              <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Link.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Link.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="191">
+              <caret line="60" column="21" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
               <folding>
-                <element signature="e#237#238#0" expanded="true" />
-                <element signature="e#271#272#0" expanded="true" />
+                <element signature="e#1245#1246#0" expanded="true" />
+                <element signature="e#1272#1273#0" expanded="true" />
+                <element signature="e#1302#1303#0" expanded="true" />
+                <element signature="e#1328#1329#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TextSection.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/TextSection.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/lesson03/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+            <state relative-caret-position="412">
+              <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MultiTextSection.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/MultiTextSection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -208,7 +200,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContactType.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ContactType.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/ContactType.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="264">
@@ -255,10 +247,7 @@
         <option value="$PROJECT_DIR$/src/main/Main.java" />
         <option value="$PROJECT_DIR$/src/lesson01/Main.java" />
         <option value="$PROJECT_DIR$/src/lesson02/Main.java" />
-        <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Link.java" />
         <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Contact.java" />
-        <option value="$PROJECT_DIR$/src/lesson03/Main.java" />
-        <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/MultiTextSection.java" />
         <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/OrganizationPeriod.java" />
         <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Organization.java" />
         <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/OrganizationSection.java" />
@@ -267,6 +256,9 @@
         <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Resume.java" />
         <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/SectionType.java" />
         <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/ContactType.java" />
+        <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/MultiTextSection.java" />
+        <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Link.java" />
+        <option value="$PROJECT_DIR$/src/lesson03/Main.java" />
       </list>
     </option>
   </component>
@@ -695,7 +687,7 @@
       <workItem from="1477516342268" duration="3774000" />
       <workItem from="1477598436495" duration="3027000" />
       <workItem from="1477769693220" duration="5478000" />
-      <workItem from="1477941007246" duration="8938000" />
+      <workItem from="1477941007246" duration="10334000" />
     </task>
     <task id="LOCAL-00001" summary="Add class">
       <created>1476296007098</created>
@@ -872,11 +864,18 @@
       <option name="project" value="LOCAL" />
       <updated>1477949946090</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Enhance Contact Type;">
+      <created>1477950176545</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1477950176545</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46093000" />
+    <option name="totallyTimeSpent" value="47489000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -897,7 +896,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51348186" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2602579" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25791326" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20332618" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -934,11 +933,12 @@
     <MESSAGE value="Add classes to model" />
     <MESSAGE value="Add enum contact type" />
     <MESSAGE value="Enhance Section Type;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Enhance Section Type;" />
+    <MESSAGE value="Enhance Contact Type;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enhance Contact Type;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1240,14 +1240,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Link.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Contact.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -1257,38 +1249,6 @@
             <element signature="e#337#338#0" expanded="true" />
             <element signature="e#369#370#0" expanded="true" />
             <element signature="e#397#398#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lesson02/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
-          <folding>
-            <element signature="e#759#760#0" expanded="true" />
-            <element signature="e#811#812#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lesson03/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/MultiTextSection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="e#237#238#0" expanded="true" />
-            <element signature="e#271#272#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1448,6 +1408,45 @@
             <element signature="e#320#321#0" expanded="true" />
             <element signature="e#352#353#0" expanded="true" />
             <element signature="e#380#381#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/MultiTextSection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Link.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="60" column="21" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
+          <folding>
+            <element signature="e#1245#1246#0" expanded="true" />
+            <element signature="e#1272#1273#0" expanded="true" />
+            <element signature="e#1302#1303#0" expanded="true" />
+            <element signature="e#1328#1329#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson02/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lesson03/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
