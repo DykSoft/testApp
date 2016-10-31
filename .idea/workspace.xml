@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5d7d9026-15aa-4db4-87bd-475bf052cd29" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/SectionType.java" afterPath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/SectionType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/ContactType.java" afterPath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/ContactType.java" />
     </list>
     <ignored path="testApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -193,27 +193,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SectionType.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SectionType.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/SectionType.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+            <state relative-caret-position="72">
+              <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
               <folding>
                 <element signature="e#307#308#0" expanded="true" />
                 <element signature="e#341#342#0" expanded="true" />
+                <element signature="e#373#374#0" expanded="true" />
                 <element signature="e#401#402#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lesson03/Main.java">
+      <file leaf-file-name="ContactType.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/ContactType.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+            <state relative-caret-position="264">
+              <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#286#287#0" expanded="true" />
+                <element signature="e#320#321#0" expanded="true" />
+                <element signature="e#352#353#0" expanded="true" />
+                <element signature="e#380#381#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -252,7 +256,6 @@
         <option value="$PROJECT_DIR$/src/lesson01/Main.java" />
         <option value="$PROJECT_DIR$/src/lesson02/Main.java" />
         <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Link.java" />
-        <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/ContactType.java" />
         <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Contact.java" />
         <option value="$PROJECT_DIR$/src/lesson03/Main.java" />
         <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/MultiTextSection.java" />
@@ -263,6 +266,7 @@
         <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Section.java" />
         <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Resume.java" />
         <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/SectionType.java" />
+        <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/ContactType.java" />
       </list>
     </option>
   </component>
@@ -691,7 +695,7 @@
       <workItem from="1477516342268" duration="3774000" />
       <workItem from="1477598436495" duration="3027000" />
       <workItem from="1477769693220" duration="5478000" />
-      <workItem from="1477941007246" duration="8681000" />
+      <workItem from="1477941007246" duration="8938000" />
     </task>
     <task id="LOCAL-00001" summary="Add class">
       <created>1476296007098</created>
@@ -861,11 +865,18 @@
       <option name="project" value="LOCAL" />
       <updated>1477949686025</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Enhance Section Type;">
+      <created>1477949946090</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1477949946090</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45836000" />
+    <option name="totallyTimeSpent" value="46093000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -922,7 +933,8 @@
     <MESSAGE value="Implement equals" />
     <MESSAGE value="Add classes to model" />
     <MESSAGE value="Add enum contact type" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add enum contact type" />
+    <MESSAGE value="Enhance Section Type;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enhance Section Type;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1236,14 +1248,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/ContactType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Contact.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -1424,12 +1428,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/SectionType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+        <state relative-caret-position="72">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
           <folding>
             <element signature="e#307#308#0" expanded="true" />
             <element signature="e#341#342#0" expanded="true" />
+            <element signature="e#373#374#0" expanded="true" />
             <element signature="e#401#402#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/ContactType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+          <folding>
+            <element signature="e#286#287#0" expanded="true" />
+            <element signature="e#320#321#0" expanded="true" />
+            <element signature="e#352#353#0" expanded="true" />
+            <element signature="e#380#381#0" expanded="true" />
           </folding>
         </state>
       </provider>
