@@ -15,9 +15,9 @@ public class Resume {
 
     private List<Contact> contacts;
     private List<Section> sections;
-    private List<Organization> organizations;
+   // private List<Organization> organizations;
 
-    public Resume(String fullName, String location, List<Contact> contacts, List<Organization> organizations, List<Section> sections) {
+    /*public Resume(String fullName, String location, List<Contact> contacts, List<Organization> organizations, List<Section> sections) {
         this.contacts = contacts;
         this.fullName = fullName;
         this.location = location;
@@ -25,5 +25,5 @@ public class Resume {
         this.sections = sections;
 
 
-    }
+    }*/
 }

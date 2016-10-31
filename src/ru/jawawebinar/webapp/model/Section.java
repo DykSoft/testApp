@@ -4,32 +4,32 @@ package ru.jawawebinar.webapp.model;
  * denis
  * 29.10.2016.
  */
-enum TypeSection {
+/*enum TypeSection {
 
     OBJECTIVE,
     ACHIEVEMENT,
     QUALIFICATION,
     EXPERIENCE,
     EDUCATION
-}
+}*/
 
 
 public class Section {
 
-    private TypeSection typeSection;
-    private String value;
+    protected SectionType type;
+    /*private String value;
 
-    public Section(TypeSection typeSection, String value) {
-        this.typeSection = typeSection;
+    public Section(SectionType type, String value) {
+        this.type = type;
         this.value = value;
     }
 
-    public TypeSection getTypeSection() {
-        return typeSection;
+    public SectionType getType() {
+        return type;
     }
 
-    public void setTypeSection(TypeSection typeSection) {
-        this.typeSection = typeSection;
+    public void setType(SectionType type) {
+        this.type = type;
     }
 
     public String getValue() {
@@ -38,5 +38,5 @@ public class Section {
 
     public void setValue(String value) {
         this.value = value;
-    }
+    }*/
 }

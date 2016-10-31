@@ -2,6 +2,7 @@ package ru.jawawebinar.webapp.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -10,7 +11,12 @@ import java.util.Locale;
  */
 public class Organization {
 
-    public static final String DATE_FORMAT1 = "dd.MM.yyyy";
+    private Link link;
+    private List<OrganizationPeriod> periods;
+
+
+
+    /*public static final String DATE_FORMAT1 = "dd.MM.yyyy";
 
     private Date dateS;
     private Date dateE;
@@ -53,5 +59,5 @@ public class Organization {
         return getValue() + " c " + dateFormat.format(getDateS()) + " по "
                           + (dateE == null ? " наст. время" : dateFormat.format(getDateE()));
 
-    }
+    }*/
 }
