@@ -145,41 +145,40 @@
                   <point x="-89.5" y="0.0" />
                 </edge>
                 <edge source="ru.jawawebinar.webapp.model.Section" target="ru.jawawebinar.webapp.model.SectionType">
-                  <point x="89.5" y="0.0" />
-                  <point x="-98.5" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
                 </edge>
                 <edge source="ru.jawawebinar.webapp.model.Organization" target="ru.jawawebinar.webapp.model.Link">
-                  <point x="69.0" y="0.0" />
-                  <point x="-90.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
                 </edge>
                 <edge source="ru.jawawebinar.webapp.model.Organization" target="ru.jawawebinar.webapp.model.OrganizationPeriod">
-                  <point x="0.0" y="45.5" />
-                  <point x="0.0" y="-72.5" />
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
                 </edge>
                 <edge source="ru.jawawebinar.webapp.model.OrganizationSection" target="ru.jawawebinar.webapp.model.Organization">
-                  <point x="119.0" y="0.0" />
-                  <point x="-69.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
                 </edge>
                 <edge source="ru.jawawebinar.webapp.model.Resume" target="ru.jawawebinar.webapp.model.Section">
-                  <point x="124.5" y="0.0" />
-                  <point x="148.0" y="362.0" />
-                  <point x="-40.0" y="-32.0" />
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
                 </edge>
                 <edge source="ru.jawawebinar.webapp.model.OrganizationSection" target="ru.jawawebinar.webapp.model.Section">
                   <point x="0.0" y="32.0" />
                   <point x="0.0" y="-32.0" />
                 </edge>
                 <edge source="ru.jawawebinar.webapp.model.Resume" target="ru.jawawebinar.webapp.model.Contact">
-                  <point x="0.0" y="-86.0" />
-                  <point x="0.0" y="45.5" />
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
                 </edge>
                 <edge source="ru.jawawebinar.webapp.model.TextSection" target="ru.jawawebinar.webapp.model.Section">
                   <point x="0.0" y="-45.5" />
                   <point x="0.0" y="32.0" />
                 </edge>
                 <edge source="ru.jawawebinar.webapp.model.Contact" target="ru.jawawebinar.webapp.model.ContactType">
-                  <point x="100.5" y="0.0" />
-                  <point x="-97.5" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
                 </edge>
               </edges>
               <settings layout="Hierarchic Group" zoom="1.0" x="275.0" y="534.5" />
@@ -687,7 +686,7 @@
       <workItem from="1477516342268" duration="3774000" />
       <workItem from="1477598436495" duration="3027000" />
       <workItem from="1477769693220" duration="5478000" />
-      <workItem from="1477941007246" duration="8453000" />
+      <workItem from="1477941007246" duration="8459000" />
     </task>
     <task id="LOCAL-00001" summary="Add class">
       <created>1476296007098</created>
@@ -843,11 +842,18 @@
       <option name="project" value="LOCAL" />
       <updated>1477949473909</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Add enum contact type">
+      <created>1477949679207</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1477949679207</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45608000" />
+    <option name="totallyTimeSpent" value="45614000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1366,41 +1372,40 @@
               <point x="-89.5" y="0.0" />
             </edge>
             <edge source="ru.jawawebinar.webapp.model.Section" target="ru.jawawebinar.webapp.model.SectionType">
-              <point x="89.5" y="0.0" />
-              <point x="-98.5" y="0.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="ru.jawawebinar.webapp.model.Organization" target="ru.jawawebinar.webapp.model.Link">
-              <point x="69.0" y="0.0" />
-              <point x="-90.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="ru.jawawebinar.webapp.model.Organization" target="ru.jawawebinar.webapp.model.OrganizationPeriod">
-              <point x="0.0" y="45.5" />
-              <point x="0.0" y="-72.5" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="ru.jawawebinar.webapp.model.OrganizationSection" target="ru.jawawebinar.webapp.model.Organization">
-              <point x="119.0" y="0.0" />
-              <point x="-69.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="ru.jawawebinar.webapp.model.Resume" target="ru.jawawebinar.webapp.model.Section">
-              <point x="124.5" y="0.0" />
-              <point x="148.0" y="362.0" />
-              <point x="-40.0" y="-32.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="ru.jawawebinar.webapp.model.OrganizationSection" target="ru.jawawebinar.webapp.model.Section">
               <point x="0.0" y="32.0" />
               <point x="0.0" y="-32.0" />
             </edge>
             <edge source="ru.jawawebinar.webapp.model.Resume" target="ru.jawawebinar.webapp.model.Contact">
-              <point x="0.0" y="-86.0" />
-              <point x="0.0" y="45.5" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="ru.jawawebinar.webapp.model.TextSection" target="ru.jawawebinar.webapp.model.Section">
               <point x="0.0" y="-45.5" />
               <point x="0.0" y="32.0" />
             </edge>
             <edge source="ru.jawawebinar.webapp.model.Contact" target="ru.jawawebinar.webapp.model.ContactType">
-              <point x="100.5" y="0.0" />
-              <point x="-97.5" y="0.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
           </edges>
           <settings layout="Hierarchic Group" zoom="1.0" x="275.0" y="534.5" />
