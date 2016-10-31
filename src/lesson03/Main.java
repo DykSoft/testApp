@@ -23,11 +23,19 @@ public class Main {
             Link l = new Link("qwerty","URL");
             System.out.println(f.get(l));
             System.out.println(l.getUrl());
+            System.out.println(l instanceof Link);
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
+
+        StringBuilder fill = new StringBuilder();
+        for(int i=0; i < 1000; i++) {
+            fill.append("a");
+        }
+
+        System.out.println(fill.toString());
 
 
     }
