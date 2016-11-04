@@ -3,9 +3,9 @@ package ru.jawawebinar.webapp.storage;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import ru.jawawebinar.webapp.model.*;
-
-import static org.junit.Assert.*;
+import ru.jawawebinar.webapp.model.Contact;
+import ru.jawawebinar.webapp.model.ContactType;
+import ru.jawawebinar.webapp.model.Resume;
 
 /**
  * denis
@@ -13,19 +13,19 @@ import static org.junit.Assert.*;
  */
 public class ArrayStorageTest {
 
-    private static Resume R1,R2,R3;
+    private static Resume R1, R2, R3;
 
     private ArrayStorage storage = new ArrayStorage();
 
     static {
 
-        R1 = new Resume("Полное Имя1","location1");
-        R1.addContact(new Contact(ContactType.MAIL,"mail1@ya.ru"));
-        R1.addContact(new Contact(ContactType.PHONE,"11111"));
-        R2 = new Resume("Полное Имя2",null);
-        R2.addContact(new Contact(ContactType.SKYPE,"skype2"));
-        R2.addContact(new Contact(ContactType.PHONE,"22222"));
-        R3 = new Resume("Полное Имя3",null);
+        R1 = new Resume("Полное Имя1", "location1");
+        R1.addContact(new Contact(ContactType.MAIL, "mail1@ya.ru"));
+        R1.addContact(new Contact(ContactType.PHONE, "11111"));
+        R2 = new Resume("Полное Имя2", null);
+        R2.addContact(new Contact(ContactType.SKYPE, "skype2"));
+        R2.addContact(new Contact(ContactType.PHONE, "22222"));
+        R3 = new Resume("Полное Имя3", null);
 
     }
 
@@ -60,8 +60,6 @@ public class ArrayStorageTest {
     }*/
 
 
-
-
     @org.junit.Test
     public void clear() throws Exception {
 
@@ -69,7 +67,6 @@ public class ArrayStorageTest {
 
     @org.junit.Test
     public void save() throws Exception {
-
 
 
     }
@@ -87,8 +84,8 @@ public class ArrayStorageTest {
     @org.junit.Test
     public void delete() throws Exception {
         storage.delete(R1.getUuid());
-        Assert.assertEquals(2,storage.size());
-        Assert.assertEquals(null,storage.load(R1.getUuid()));
+        Assert.assertEquals(2, storage.size());
+        Assert.assertEquals(null, storage.load(R1.getUuid()));
 
 
     }
