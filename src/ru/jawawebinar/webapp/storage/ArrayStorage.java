@@ -26,7 +26,7 @@ public class ArrayStorage implements IStorage {
       int idx = -1;
 
       for (int i = 0; i < LIMIT; i++) {
-          Resume resume = array[1];
+          Resume resume = array[i];
           if (resume !=null) {
               if (r.equals(resume)) {
                   new IllegalStateException("Already present");
@@ -53,15 +53,65 @@ public class ArrayStorage implements IStorage {
     @Override
     public void update(Resume r) {
 
+        int idx = -1;
+
+        for (int i = 0; i < LIMIT; i++) {
+
+            Resume resume = array[i];
+            if (resume != null  && r.equals(resume)) {
+                array[i] = r;
+                idx = i;
+            }
+
+        }
+
+        if (idx < 0) {
+            new IllegalStateException("No resume found!");
+        }
+
     }
 
     @Override
     public Resume load(String uuid) {
+
+        for (int i = 0; i < LIMIT; i++) {
+
+            Resume resume = array[i];
+            if (resume != null) {
+
+                String resumeUuid = resume.getUuid();
+                if (resumeUuid != null && resumeUuid.equals(uuid)) {
+                    return resume;
+                }
+
+
+            }
+
+        }
+
         return null;
     }
 
     @Override
     public void delete(String uuid) {
+
+        int idx = -1;
+
+        for (int i = 0; i < LIMIT; i++) {
+            Resume resume = array[i];
+            if (resume != null) {
+                String resumeUuid = resume.getUuid();
+                if (resumeUuid != null && resumeUuid.equals(uuid)) {
+                    array[i] = null;
+                    idx = i;
+                }
+            }
+
+        }
+
+        if (idx < 0) {
+            new IllegalStateException("Resume not found");
+        }
 
     }
 
@@ -72,6 +122,6 @@ public class ArrayStorage implements IStorage {
 
     @Override
     public int size() {
-        return 0;
+        return array.length;
     }
 }
