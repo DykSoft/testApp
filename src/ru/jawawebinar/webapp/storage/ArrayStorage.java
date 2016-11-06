@@ -1,8 +1,11 @@
 package ru.jawawebinar.webapp.storage;
 
+import ru.jawawebinar.webapp.WebAppException;
 import ru.jawawebinar.webapp.model.Resume;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.logging.Logger;
 
 /**
  * denis
@@ -11,18 +14,26 @@ import java.util.Collection;
 public class ArrayStorage implements IStorage {
 
     private static final int LIMIT = 100;
-    private Resume[] array = new Resume[LIMIT];
-    int idx = 0;
+    //protected Logger LOGGER = Logger.getLogger(getClass().getName());
+    private static Logger LOGGER = Logger.getLogger(ArrayStorage.class.getName());
 
+    private Resume[] array = new Resume[LIMIT];
+    private int size = 0;
 
     @Override
     public void clear() {
 
-     for (int i = 0; i < LIMIT; i++) {
+/*     for (int i = 0; i < LIMIT; i++) {
 
          array[i] = null;
 
-     }
+     }*/
+
+        //Эквивавелент
+
+        LOGGER.info("Delete all resumes.");
+        Arrays.fill(array, null);
+        size = 0;
 
 
     }
@@ -30,42 +41,49 @@ public class ArrayStorage implements IStorage {
     @Override
     public void save(Resume r) {
 
-      int idx = -1;
+/*        int idx = -1;
 
-      for (int i = 0; i < LIMIT; i++) {
-          Resume resume = array[i];
-          if (resume !=null) {
-              if (r.equals(resume)) {
-                  new IllegalStateException("Already present");
-              }
-          } else if (idx == -1) {
-              idx = i;
-          }
-      }
+        for (int i = 0; i < LIMIT; i++) {
+            Resume resume = array[i];
+            if (resume != null) {
+                if (r.equals(resume)) {
+                    new IllegalStateException("Already present");
+                }
+            } else if (idx == -1) {
+                idx = i;
+            }
+        }
 
-      array[idx] = r;
+        array[idx] = r;*/
+
+        LOGGER.info("Save resume with uuid=" + r.getUuid());
+        int idx = getIndex(r.getUuid());
+
 
 /*
-      for (int i = 0; i < LIMIT; i++) {
-
-          if (array[i] == null) {
-              array[i] = r;
-          }
-
-      }
+            try {
+                throw new WebAppException("Resume " + r.getUuid() + "already exist", r);
+            } catch (WebAppException e) {
+                //e.printStackTrace();
+                LOGGER.log(Level.SEVERE,e.getMessage(),e);
+                throw new IllegalStateException(e);
+            }
 */
+        if (idx != -1) throw new WebAppException("Resume " + r.getUuid() + "already exist");
+        array[size++] = r;
+
 
     }
 
     @Override
     public void update(Resume r) {
 
-        int idx = -1;
+        /*int idx = -1;
 
         for (int i = 0; i < LIMIT; i++) {
 
             Resume resume = array[i];
-            if (resume != null  && r.equals(resume)) {
+            if (resume != null && r.equals(resume)) {
                 array[i] = r;
                 idx = i;
             }
@@ -74,14 +92,21 @@ public class ArrayStorage implements IStorage {
 
         if (idx < 0) {
             new IllegalStateException("No resume found!");
-        }
+        }*/
+
+        LOGGER.info("Update resume with uuid=" + r.getUuid());
+        int idx = getIndex(r.getUuid());
+        if (idx == -1) throw new WebAppException("Resume " + r.getUuid() + "not exist");
+        array[idx] = r;
+
+
 
     }
 
     @Override
     public Resume load(String uuid) {
 
-        for (int i = 0; i < LIMIT; i++) {
+        /*for (int i = 0; i < LIMIT; i++) {
 
             Resume resume = array[i];
             if (resume != null) {
@@ -94,15 +119,18 @@ public class ArrayStorage implements IStorage {
 
             }
 
-        }
+        }*/
 
-        return null;
+        LOGGER.info("Load resume with uuid=" + uuid);
+        int idx = getIndex(uuid);
+        if (idx == -1) throw new WebAppException("Resume " + uuid + "not exist");
+        return array[idx];
     }
 
     @Override
     public void delete(String uuid) {
 
-        int idx = -1;
+       /* int idx = -1;
 
         for (int i = 0; i < LIMIT; i++) {
             Resume resume = array[i];
@@ -118,19 +146,31 @@ public class ArrayStorage implements IStorage {
 
         if (idx < 0) {
             new IllegalStateException("Resume not found");
-        }
+        }*/
+
+        LOGGER.info("Delete resume with uuid=" + uuid);
+        int idx = getIndex(uuid);
+        if (idx == -1) throw new WebAppException("Resume " + uuid + "not exist");
+        int numMoved = size - idx - 1;
+        if (numMoved > 0)
+            System.arraycopy(array, idx+1, array, idx,numMoved);
+        array[--size] = null; // clear to let GC do its work
+
+
 
     }
 
     @Override
     public Collection<Resume> getAllSorted() {
-        return null;
+        //return null;
+        Arrays.sort(array,0,size);
+        return Arrays.asList(Arrays.copyOf(array,size));
     }
 
     @Override
     public int size() {
 
-        int size = 0;
+       /* int size = 0;
 
         for (int i = 0; i < LIMIT; i++) {
 
@@ -139,7 +179,25 @@ public class ArrayStorage implements IStorage {
             }
 
         }
-
+*/
         return size;
+    }
+
+    private int getIndex(String uuid) {
+
+        for (int i = 0; i < LIMIT; i++) {
+
+            if (array[i] != null) {
+                if (array[i].getUuid().equals(uuid)) {
+                    return i;
+                }
+
+
+            }
+
+        }
+
+
+        return -1;
     }
 }
