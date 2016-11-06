@@ -18,6 +18,13 @@ public class ArrayStorage implements IStorage {
     @Override
     public void clear() {
 
+     for (int i = 0; i < LIMIT; i++) {
+
+         array[i] = null;
+
+     }
+
+
     }
 
     @Override
@@ -122,6 +129,17 @@ public class ArrayStorage implements IStorage {
 
     @Override
     public int size() {
-        return array.length;
+
+        int size = 0;
+
+        for (int i = 0; i < LIMIT; i++) {
+
+            if (array[i] != null) {
+                size++;
+            }
+
+        }
+
+        return size;
     }
 }

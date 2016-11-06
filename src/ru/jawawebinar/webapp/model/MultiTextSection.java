@@ -10,7 +10,7 @@ public class MultiTextSection extends Section {
 
     private List<String> values;
 
-/*    public MultiTextSection(SectionType type, String value) {
-        super(type, value);
-    }*/
+    public MultiTextSection(List<String> values) {
+        this.values = values;
+    }
 }

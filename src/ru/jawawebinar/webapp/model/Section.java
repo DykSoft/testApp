@@ -17,7 +17,7 @@ package ru.jawawebinar.webapp.model;
 public class Section {
 
     protected SectionType type;
-    /*private String value;
+/*    private String value;
 
     public Section(SectionType type, String value) {
         this.type = type;
