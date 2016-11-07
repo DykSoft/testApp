@@ -100,13 +100,6 @@ public class ArrayStorageTest {
     @org.junit.Test
     public void update() throws Exception {
 
-/*        String uid = R3.getUuid();
-
-        storage.update(R3);
-        Resume resume = storage.load(uid);
-
-        Assert.assertEquals(resume,R3);*/
-
         R2.setFullName("Update R2");
         storage.update(R2);
         Assert.assertEquals(R2,storage.load(R2.getUuid()));
@@ -116,8 +109,6 @@ public class ArrayStorageTest {
     @org.junit.Test
     public void load() throws Exception {
 
-       // Resume resume = storage.load(R2.getUuid());
-       // Assert.assertEquals(resume.getUuid(),R2.getUuid());
         Assert.assertEquals(R1,storage.load(R1.getUuid()));
         Assert.assertEquals(R2,storage.load(R2.getUuid()));
         Assert.assertEquals(R3,storage.load(R3.getUuid()));
@@ -126,22 +117,7 @@ public class ArrayStorageTest {
 
     @org.junit.Test(expected = WebAppException.class)
     public void deleteNotFound() throws Exception {
-
-
-/*        String uid = R1.getUuid();
-        storage.delete(uid);
-        Assert.assertEquals(2, storage.size());
-        Assert.assertEquals(null, storage.load(uid));*/
-
-/*        storage.delete(R1.getUuid());
-        Assert.assertEquals(2,storage.size());
-        //Assert.assertEquals(null,storage.load(R1.getUuid()));
-        storage.load(R1.getUuid());*/
-
         storage.load("dummy");
-
-
-
     }
 
     @org.junit.Test

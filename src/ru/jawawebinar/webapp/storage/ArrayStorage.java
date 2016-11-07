@@ -5,17 +5,18 @@ import ru.jawawebinar.webapp.model.Resume;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.logging.Logger;
+
 
 /**
  * denis
  * 01.11.2016.
  */
-public class ArrayStorage implements IStorage {
+//public class ArrayStorage implements IStorage {
+public class ArrayStorage extends AbstractStorage {
 
     private static final int LIMIT = 100;
     //protected Logger LOGGER = Logger.getLogger(getClass().getName());
-    private static Logger LOGGER = Logger.getLogger(ArrayStorage.class.getName());
+    //private static Logger LOGGER = Logger.getLogger(ArrayStorage.class.getName());
 
     private Resume[] array = new Resume[LIMIT];
     private int size = 0;
@@ -31,32 +32,39 @@ public class ArrayStorage implements IStorage {
 
         //Эквивавелент
 
-        LOGGER.info("Delete all resumes.");
+        logger.info("Delete all resumes.");
         Arrays.fill(array, null);
         size = 0;
 
 
     }
 
-    @Override
+/*    @Override
     public void save(Resume r) {
 
-/*        int idx = -1;
 
-        for (int i = 0; i < LIMIT; i++) {
-            Resume resume = array[i];
-            if (resume != null) {
-                if (r.equals(resume)) {
-                    new IllegalStateException("Already present");
-                }
-            } else if (idx == -1) {
-                idx = i;
+        logger.info("Save resume with uuid=" + r.getUuid());
+        int idx = getIndex(r.getUuid());
+
+
+*//*
+            try {
+                throw new WebAppException("Resume " + r.getUuid() + "already exist", r);
+            } catch (WebAppException e) {
+                //e.printStackTrace();
+                LOGGER.log(Level.SEVERE,e.getMessage(),e);
+                throw new IllegalStateException(e);
             }
-        }
+*//*
+        if (idx != -1) throw new WebAppException("Resume " + r.getUuid() + "already exist");
+        array[size++] = r;
 
-        array[idx] = r;*/
 
-        LOGGER.info("Save resume with uuid=" + r.getUuid());
+    }*/
+
+    @Override
+    protected void doSave(Resume r) {
+
         int idx = getIndex(r.getUuid());
 
 
@@ -71,6 +79,7 @@ public class ArrayStorage implements IStorage {
 */
         if (idx != -1) throw new WebAppException("Resume " + r.getUuid() + "already exist");
         array[size++] = r;
+
 
 
     }
@@ -94,7 +103,7 @@ public class ArrayStorage implements IStorage {
             new IllegalStateException("No resume found!");
         }*/
 
-        LOGGER.info("Update resume with uuid=" + r.getUuid());
+        logger.info("Update resume with uuid=" + r.getUuid());
         int idx = getIndex(r.getUuid());
         if (idx == -1) throw new WebAppException("Resume " + r.getUuid() + "not exist");
         array[idx] = r;
@@ -121,7 +130,7 @@ public class ArrayStorage implements IStorage {
 
         }*/
 
-        LOGGER.info("Load resume with uuid=" + uuid);
+        logger.info("Load resume with uuid=" + uuid);
         int idx = getIndex(uuid);
         if (idx == -1) throw new WebAppException("Resume " + uuid + "not exist");
         return array[idx];
@@ -148,7 +157,7 @@ public class ArrayStorage implements IStorage {
             new IllegalStateException("Resume not found");
         }*/
 
-        LOGGER.info("Delete resume with uuid=" + uuid);
+        logger.info("Delete resume with uuid=" + uuid);
         int idx = getIndex(uuid);
         if (idx == -1) throw new WebAppException("Resume " + uuid + "not exist");
         int numMoved = size - idx - 1;
