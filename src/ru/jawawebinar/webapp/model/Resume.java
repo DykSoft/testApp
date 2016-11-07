@@ -2,6 +2,7 @@ package ru.jawawebinar.webapp.model;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -9,7 +10,7 @@ import java.util.UUID;
  * denis
  * 27.10.2016.
  */
-public class Resume {
+public class Resume implements Comparable<Resume> {
 
     private String uuid;
     private String fullName;
@@ -65,6 +66,50 @@ public class Resume {
     }
 
     @Override
+    public int hashCode() {
+        return Objects.hash(uuid, fullName, location, homePage, contacts, sections);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final Resume other = (Resume) obj;
+        return Objects.equals(this.uuid, other.uuid)
+                && Objects.equals(this.fullName, other.fullName)
+                && Objects.equals(this.location, other.location)
+                && Objects.equals(this.homePage, other.homePage)
+                && Objects.equals(this.contacts, other.contacts)
+                && Objects.equals(this.sections, other.sections);
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setHomePage(String homePage) {
+        this.homePage = homePage;
+    }
+
+    @Override
+    public int compareTo(Resume o) {
+        return fullName.compareTo(o.fullName);
+    }
+
+
+    /*    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -78,7 +123,9 @@ public class Resume {
     @Override
     public int hashCode() {
         return uuid.hashCode();
-    }
+    }*/
+
+
 
     // private List<Organization> organizations;
 
