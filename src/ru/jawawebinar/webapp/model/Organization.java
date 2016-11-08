@@ -1,9 +1,7 @@
 package ru.jawawebinar.webapp.model;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * denis
@@ -12,9 +10,15 @@ import java.util.Locale;
 public class Organization {
 
     private Link link;
-    private List<OrganizationPeriod> periods;
+    private List<Period> periods;
 
+    public Organization() {
+    }
 
+    public Organization(Link link, List<Period> periods) {
+        this.link = link;
+        this.periods = periods;
+    }
 
     /*public static final String DATE_FORMAT1 = "dd.MM.yyyy";
 
@@ -60,4 +64,27 @@ public class Organization {
                           + (dateE == null ? " наст. время" : dateFormat.format(getDateE()));
 
     }*/
+
+    /**
+     * denis
+     * 01.11.2016.
+     */
+    public static class Period {
+    //public class Period {
+
+        private Date startDate;
+        private Date endDate;
+        private String position;
+        private String content;
+
+        public Period() {
+        }
+
+        public Period(Date startDate, Date endDate, String position, String content) {
+            this.startDate = startDate;
+            this.endDate = endDate;
+            this.position = position;
+            this.content = content;
+        }
+    }
 }

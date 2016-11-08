@@ -14,7 +14,7 @@ import java.util.Arrays;
  * denis
  * 02.11.2016.
  */
-public class ArrayStorageTest {
+public class ArrayStorageTest extends AbstractStorageTest {
 
     /*private static Resume R1, R2, R3;*/
     private Resume R1, R2, R3;

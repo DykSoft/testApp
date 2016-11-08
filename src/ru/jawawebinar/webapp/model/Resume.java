@@ -2,7 +2,6 @@ package ru.jawawebinar.webapp.model;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
 import java.util.UUID;
 
 
@@ -12,7 +11,7 @@ import java.util.UUID;
  */
 public class Resume implements Comparable<Resume> {
 
-    private String uuid;
+    private final String uuid;
     private String fullName;
     private String location;
     private String homePage;
@@ -67,10 +66,32 @@ public class Resume implements Comparable<Resume> {
 
     @Override
     public int hashCode() {
-        return Objects.hash(uuid, fullName, location, homePage, contacts, sections);
+        //return Objects.hash(uuid);
+        return uuid.hashCode();
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final Resume other = (Resume) obj;
+        //return Objects.equals(this.uuid, other.uuid);
+        return uuid.equals(other.uuid);
+    }
+
+    /*    @Override
+    public int hashCode() {
+        //return Objects.hash(uuid, fullName, location, homePage, contacts, sections);
+        return uuid.hashCode();
+    }*/
+
+
+
+/*    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -85,11 +106,11 @@ public class Resume implements Comparable<Resume> {
                 && Objects.equals(this.homePage, other.homePage)
                 && Objects.equals(this.contacts, other.contacts)
                 && Objects.equals(this.sections, other.sections);
-    }
+    }*/
 
-    public void setUuid(String uuid) {
+/*    public void setUuid(String uuid) {
         this.uuid = uuid;
-    }
+    }*/
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
