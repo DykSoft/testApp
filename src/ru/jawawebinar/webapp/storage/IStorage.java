@@ -18,4 +18,6 @@ public interface IStorage {
     Collection<Resume> getAllSorted();
     int size();
 
+
+
 }
