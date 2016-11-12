@@ -1,10 +1,8 @@
 package ru.jawawebinar.webapp.storage;
 
-import ru.jawawebinar.webapp.WebAppException;
 import ru.jawawebinar.webapp.model.Resume;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+
+import java.util.*;
 
 /**
  * denis
@@ -32,7 +30,8 @@ public class MapStorage extends AbstractStorage {
     @Override
     public void doUpdate(Resume r) {
 
-        map.replace(r.getUuid(),r);
+        //map.replace(r.getUuid(),r);
+        map.put(r.getUuid(),r);
 
     }
 
@@ -50,14 +49,27 @@ public class MapStorage extends AbstractStorage {
     }
 
     @Override
-    public Collection<Resume> doGetAllSorted()  {
+    public List<Resume> doGetAllSorted()  {
 
-        throw new WebAppException("Illegal state operation!");
+
+/*        ArrayList<Resume> list = new ArrayList<>();
+        for(Map.Entry<String,Resume> entry: map.entrySet()) {
+            list.add(entry.getValue());
+        }*/
+
+        return new ArrayList<>(map.values());
+
     }
 
     @Override
     public int doSize() {
 
        return map.size();
+    }
+
+    @Override
+    protected boolean exist(String uuid) {
+        return map.containsKey(uuid);
+        //return map.get(uuid) != null;
     }
 }

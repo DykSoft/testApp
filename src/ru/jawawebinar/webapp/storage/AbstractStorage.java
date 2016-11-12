@@ -1,7 +1,10 @@
 package ru.jawawebinar.webapp.storage;
 
+import ru.jawawebinar.webapp.WebAppException;
 import ru.jawawebinar.webapp.model.Resume;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -10,22 +13,28 @@ import java.util.logging.Logger;
  */
 abstract class AbstractStorage implements IStorage{
 
-    private Logger logger = Logger.getLogger(getClass().getName());
+    protected final Logger logger = Logger.getLogger(getClass().getName());
 
     @Override
     public void save(Resume r) {
 
         logger.info("Save resume with uuid=" + r.getUuid());
-        //TODO try to move here exception treatment
-        doSave(r);
+        if (exist(r.getUuid())) {
+            throw new WebAppException("Resume " + r.getUuid() + "already exist");
+        } else {
+            doSave(r);
+        }
 
     }
 
     @Override
     public void delete(String uuid) {
         logger.info("Delete resume with uuid=" + uuid);
-        //TODO try to move here exception treatment
-        doDelete(uuid);
+        if (!exist(uuid)) {
+            throw new WebAppException("Resume " + uuid + "not exist");
+        } else {
+            doDelete(uuid);
+        }
 
     }
 
@@ -33,8 +42,11 @@ abstract class AbstractStorage implements IStorage{
     public void update(Resume r) {
 
         logger.info("Update resume with uuid=" + r.getUuid());
-        //TODO try to move here exception treatment
-        doUpdate(r);
+        if (!exist(r.getUuid())) {
+            throw new WebAppException("Resume " + r.getUuid() + "not exist");
+        } else {
+            doUpdate(r);
+        }
 
     }
 
@@ -42,7 +54,6 @@ abstract class AbstractStorage implements IStorage{
     public void clear() {
 
         logger.info("Delete all resumes.");
-        //TODO try to move here exception treatment
         doClear();
 
     }
@@ -51,7 +62,11 @@ abstract class AbstractStorage implements IStorage{
     public Resume load(String uuid) {
 
         logger.info("Load resume with uuid=" + uuid);
-        //TODO try to move here exception treatment
+
+        if (!exist(uuid)) {
+            throw new WebAppException("Resume " + uuid + "not exist");
+        }
+
         return doLoad(uuid);
     }
 
@@ -59,8 +74,10 @@ abstract class AbstractStorage implements IStorage{
     public Collection<Resume> getAllSorted() {
 
         logger.info("All sorted resume");
-        //TODO try to move here exception treatment
-        return doGetAllSorted();
+        List<Resume> list = doGetAllSorted();
+        Collections.sort(list);
+
+        return list;
     }
 
     @Override
@@ -76,7 +93,8 @@ abstract class AbstractStorage implements IStorage{
     protected abstract void doUpdate(Resume r);
     protected abstract void doClear();
     protected abstract Resume doLoad(String uuid);
-    protected abstract Collection<Resume> doGetAllSorted();
+    protected abstract List<Resume> doGetAllSorted();
     protected abstract int doSize();
+    protected abstract boolean exist(String uuid);
 
 }

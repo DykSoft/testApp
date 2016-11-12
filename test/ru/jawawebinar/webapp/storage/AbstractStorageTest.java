@@ -3,29 +3,29 @@ package ru.jawawebinar.webapp.storage;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import ru.jawawebinar.webapp.WebAppException;
 import ru.jawawebinar.webapp.model.Contact;
 import ru.jawawebinar.webapp.model.ContactType;
 import ru.jawawebinar.webapp.model.Resume;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * denis
  * 11.11.2016.
  */
-public class AbstractStorageTest {
+abstract public class AbstractStorageTest {
 
     private Resume R1, R2, R3;
-    private ArrayStorage storage = new ArrayStorage();
-    private MapStorage map = new MapStorage();
-
+    protected IStorage storage;
 
 
     @Before
     public void setUp() throws Exception {
 
         storage.clear();
-        map.clear();
 
         R1 = new Resume("Полное Имя1", "location1");
         R1.addContact(new Contact(ContactType.MAIL, "mail1@ya.ru"));
@@ -39,11 +39,6 @@ public class AbstractStorageTest {
         storage.save(R2);
         storage.save(R3);
 
-        map.save(R1);
-        map.save(R2);
-        map.save(R3);
-
-
     }
 
     @Test
@@ -56,26 +51,26 @@ public class AbstractStorageTest {
         storage.save(R2);
         Assert.assertEquals(3, storage.size());
 
-        map.clear();
-        Assert.assertEquals(0, map.size());
-        map.save(R3);
-        map.save(R1);
-        map.save(R2);
-        Assert.assertEquals(3, map.size());
+    }
 
-
+    @Test(expected = WebAppException.class)
+    public void savePresented() throws Exception {
+        storage.save(R1);
     }
 
     @Test
     public void delete() throws Exception {
 
         storage.delete(R1.getUuid());
-        Assert.assertEquals(2,storage.size());
-
-        map.delete(R1.getUuid());
-        Assert.assertEquals(2,map.size());
+        Assert.assertEquals(2, storage.size());
 
     }
+
+    @Test(expected = WebAppException.class)
+    public void deleteMissed() throws Exception {
+        storage.delete("dummy");
+    }
+
 
     @Test
     public void update() throws Exception {
@@ -83,12 +78,18 @@ public class AbstractStorageTest {
         R2.setFullName("Update R2");
 
         storage.update(R2);
-        Assert.assertEquals(R2,storage.load(R2.getUuid()));
-
-        map.update(R2);
-        Assert.assertEquals(R2,map.load(R2.getUuid()));
+        Assert.assertEquals(R2, storage.load(R2.getUuid()));
 
     }
+
+    @Test(expected = WebAppException.class)
+    public void updateMissed() throws Exception {
+
+        Resume resume = new Resume("dummy", "fullName_U1", "location_U1");
+        storage.update(resume);
+
+    }
+
 
     @Test
     public void clear() throws Exception {
@@ -96,30 +97,27 @@ public class AbstractStorageTest {
         storage.clear();
         Assert.assertEquals(0, storage.size());
 
-        map.clear();
-        Assert.assertEquals(0, map.size());
-
     }
 
     @Test
     public void load() throws Exception {
 
-        Assert.assertEquals(R1,storage.load(R1.getUuid()));
-        Assert.assertEquals(R2,storage.load(R2.getUuid()));
-        Assert.assertEquals(R3,storage.load(R3.getUuid()));
-
-        Assert.assertEquals(R1,map.load(R1.getUuid()));
-        Assert.assertEquals(R2,map.load(R2.getUuid()));
-        Assert.assertEquals(R3,map.load(R3.getUuid()));
+        Assert.assertEquals(R1, storage.load(R1.getUuid()));
+        Assert.assertEquals(R2, storage.load(R2.getUuid()));
+        Assert.assertEquals(R3, storage.load(R3.getUuid()));
 
     }
 
     @Test
     public void getAllSorted() throws Exception {
 
-        Resume[] src = new Resume[]{R1,R2,R3};
+/*        Resume[] src = new Resume[]{R1, R2, R3};
         Arrays.sort(src);
-        Assert.assertArrayEquals(src,storage.getAllSorted().toArray());
+        Assert.assertArrayEquals(src, storage.getAllSorted().toArray());*/
+
+        List<Resume> list = Arrays.asList(R1,R2,R3);
+        Collections.sort(list);
+        Assert.assertEquals(list,storage.getAllSorted());
 
     }
 
@@ -127,7 +125,6 @@ public class AbstractStorageTest {
     public void size() throws Exception {
 
         Assert.assertEquals(true, storage.size() == 3);
-        Assert.assertEquals(true, map.size() == 3);
 
     }
 

@@ -1,9 +1,9 @@
 package ru.jawawebinar.webapp.storage;
 
-import ru.jawawebinar.webapp.WebAppException;
 import ru.jawawebinar.webapp.model.Resume;
+
 import java.util.Arrays;
-import java.util.Collection;
+import java.util.List;
 
 
 /**
@@ -28,7 +28,7 @@ public class ArrayStorage extends AbstractStorage {
     protected void doSave(Resume r) {
 
         int idx = getIndex(r.getUuid());
-        if (idx != -1) throw new WebAppException("Resume " + r.getUuid() + "already exist");
+        //if (idx != -1) throw new WebAppException("Resume " + r.getUuid() + "already exist");
         array[size++] = r;
 
     }
@@ -37,7 +37,7 @@ public class ArrayStorage extends AbstractStorage {
     public void doUpdate(Resume r) {
 
         int idx = getIndex(r.getUuid());
-        if (idx == -1) throw new WebAppException("Resume " + r.getUuid() + "not exist");
+        //if (idx == -1) throw new WebAppException("Resume " + r.getUuid() + "not exist");
         array[idx] = r;
 
     }
@@ -46,7 +46,7 @@ public class ArrayStorage extends AbstractStorage {
     public Resume doLoad(String uuid) {
 
         int idx = getIndex(uuid);
-        if (idx == -1) throw new WebAppException("Resume " + uuid + "not exist");
+        //if (idx == -1) throw new WebAppException("Resume " + uuid + "not exist");
         return array[idx];
     }
 
@@ -55,7 +55,7 @@ public class ArrayStorage extends AbstractStorage {
     protected void doDelete(String uuid) {
 
         int idx = getIndex(uuid);
-        if (idx == -1) throw new WebAppException("Resume " + uuid + "not exist");
+        //if (idx == -1) throw new WebAppException("Resume " + uuid + "not exist");
         int numMoved = size - idx - 1;
         if (numMoved > 0)
             System.arraycopy(array, idx+1, array, idx,numMoved);
@@ -64,11 +64,12 @@ public class ArrayStorage extends AbstractStorage {
     }
 
     @Override
-    public Collection<Resume> doGetAllSorted() {
+    public List<Resume> doGetAllSorted() {
 
-        Arrays.sort(array,0,size);
+        //Arrays.sort(array,0,size);
         return Arrays.asList(Arrays.copyOf(array,size));
     }
+
 
     @Override
     public int doSize() {
@@ -90,5 +91,10 @@ public class ArrayStorage extends AbstractStorage {
         }
 
         return -1;
+    }
+
+    @Override
+    protected boolean exist(String uuid) {
+        return (getIndex(uuid) != -1);
     }
 }
