@@ -2,8 +2,10 @@ package ru.jawawebinar.webapp.storage;
 
 import ru.jawawebinar.webapp.WebAppException;
 import ru.jawawebinar.webapp.model.Resume;
+
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -11,7 +13,7 @@ import java.util.logging.Logger;
  * denis
  * 07.11.2016.
  */
-abstract class AbstractStorage implements IStorage{
+abstract class AbstractStorage implements IStorage {
 
     protected final Logger logger = Logger.getLogger(getClass().getName());
 
@@ -75,10 +77,26 @@ abstract class AbstractStorage implements IStorage{
 
         logger.info("All sorted resume");
         List<Resume> list = doGetAllSorted();
-        Collections.sort(list);
+        //Collections.sort(list);
+        Collections.sort(list, new Comparator<Resume>() {
+            @Override
+            public int compare(Resume o1, Resume o2) {
+                int cmp = o1.getFullName().compareTo(o2.getFullName());
+                if (cmp != 0) return cmp;
+                return o1.getUuid().compareTo(o2.getUuid());
+
+/*                if (o1.getContact(ContactType.MAIL) == null && o2.getContact(ContactType.MAIL) == null) {
+                    return 0;
+                }*/
+
+
+            }
+
+        });
 
         return list;
     }
+
 
     @Override
     public int size() {
@@ -89,12 +107,19 @@ abstract class AbstractStorage implements IStorage{
     }
 
     protected abstract void doSave(Resume r);
+
     protected abstract void doDelete(String uuid);
+
     protected abstract void doUpdate(Resume r);
+
     protected abstract void doClear();
+
     protected abstract Resume doLoad(String uuid);
+
     protected abstract List<Resume> doGetAllSorted();
+
     protected abstract int doSize();
+
     protected abstract boolean exist(String uuid);
 
 }

@@ -4,12 +4,12 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import ru.jawawebinar.webapp.WebAppException;
-import ru.jawawebinar.webapp.model.Contact;
 import ru.jawawebinar.webapp.model.ContactType;
 import ru.jawawebinar.webapp.model.Resume;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -28,11 +28,11 @@ abstract public class AbstractStorageTest {
         storage.clear();
 
         R1 = new Resume("Полное Имя1", "location1");
-        R1.addContact(new Contact(ContactType.MAIL, "mail1@ya.ru"));
-        R1.addContact(new Contact(ContactType.PHONE, "11111"));
+        R1.addContact(ContactType.MAIL, "mail1@ya.ru");
+        R1.addContact(ContactType.PHONE, "11111");
         R2 = new Resume("Полное Имя2", null);
-        R2.addContact(new Contact(ContactType.SKYPE, "skype2"));
-        R2.addContact(new Contact(ContactType.PHONE, "22222"));
+        R2.addContact(ContactType.SKYPE, "skype2");
+        R2.addContact(ContactType.PHONE, "22222");
         R3 = new Resume("Полное Имя3", null);
 
         storage.save(R1);
@@ -116,7 +116,13 @@ abstract public class AbstractStorageTest {
         Assert.assertArrayEquals(src, storage.getAllSorted().toArray());*/
 
         List<Resume> list = Arrays.asList(R1,R2,R3);
-        Collections.sort(list);
+        //Collections.sort(list);
+        Collections.sort(list, new Comparator<Resume>() {
+            @Override
+            public int compare(Resume o1, Resume o2) {
+                return 0;
+            }
+        });
         Assert.assertEquals(list,storage.getAllSorted());
 
     }

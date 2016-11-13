@@ -1,15 +1,14 @@
 package ru.jawawebinar.webapp.model;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 
 /**
  * denis
  * 27.10.2016.
  */
-public class Resume implements Comparable<Resume> {
+//public class Resume implements Comparable<Resume> {
+ public class Resume {
 
     //private final String uuid;
     private String uuid;
@@ -17,7 +16,8 @@ public class Resume implements Comparable<Resume> {
     private String location;
     private String homePage;
 
-    private List<Contact> contacts = new LinkedList<>();
+    //private List<Contact> contacts = new LinkedList<>();
+    private Map<ContactType, String> contacts = new EnumMap<>(ContactType.class);
     private List<Section> sections = new LinkedList<>();
 
     public Resume() {
@@ -40,13 +40,26 @@ public class Resume implements Comparable<Resume> {
 
     }
 
-    public void addContact(Contact contact) {
+/*    public void addContact(Contact contact) {
         contacts.add(contact);
+    }*/
+
+    public void addContact(ContactType type, String value) {
+        contacts.put(type,value);
     }
 
-    public List<Contact> getContacts() {
+/*    public List<Contact> getContacts() {
+        return contacts;
+    }*/
+
+    public Map<ContactType, String> getContacts() {
         return contacts;
     }
+
+    public String getContact(ContactType type) {
+        return contacts.get(type);
+    }
+
 
     public String getFullName() {
         return fullName;
@@ -128,10 +141,21 @@ public class Resume implements Comparable<Resume> {
         this.homePage = homePage;
     }
 
-    @Override
+    //@Override
     public int compareTo(Resume o) {
         return fullName.compareTo(o.fullName);
     }
+
+/*    private String getEmail(List<Contact> list) {
+        for(Contact c: list) {
+            if(c.getType() == ContactType.MAIL) {
+                return c.getValue();
+            }
+
+        }
+
+        return null;
+    }*/
 
 
     /*    @Override

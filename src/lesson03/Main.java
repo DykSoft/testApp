@@ -1,6 +1,6 @@
 package lesson03;
 
-import ru.jawawebinar.webapp.model.Contact;
+import ru.jawawebinar.webapp.model.ContactNotUsed;
 import ru.jawawebinar.webapp.model.ContactType;
 import ru.jawawebinar.webapp.model.Link;
 
@@ -13,7 +13,7 @@ import java.lang.reflect.Field;
 public class Main {
 
     public static void main(String[] args) {
-        Contact c = new Contact(ContactType.MOBILE,"+7(900)100-10-00");
+        ContactNotUsed c = new ContactNotUsed(ContactType.MOBILE,"+7(900)100-10-00");
         System.out.println(c.getType() + ": " + c.getValue());
 
         //Link l = new Link();
