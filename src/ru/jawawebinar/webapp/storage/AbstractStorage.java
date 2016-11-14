@@ -84,15 +84,19 @@ abstract class AbstractStorage implements IStorage {
                 int cmp = o1.getFullName().compareTo(o2.getFullName());
                 if (cmp != 0) return cmp;
                 return o1.getUuid().compareTo(o2.getUuid());
-
-/*                if (o1.getContact(ContactType.MAIL) == null && o2.getContact(ContactType.MAIL) == null) {
-                    return 0;
-                }*/
-
-
             }
 
         });
+
+        //лямда
+        /*
+            Collections.sort(list, (Resume o1, Resume o2) -> {
+            int cmp = o1.getFullName().compareTo(o2.getFullName());
+            if (cmp != 0) return cmp;
+            return o1.getUuid().compareTo(o2.getUuid());
+        });
+
+        */
 
         return list;
     }

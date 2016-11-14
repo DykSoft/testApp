@@ -16,15 +16,5 @@ public class Calculator {
 
     }
 
-    public static void main(String[] args) {
-        System.out.println(new Comparator<Resume>() {
-            @Override
-            public int compare(Resume o1, Resume o2) {
-
-                System.out.println(this.getClass().getName());
-                return 0;
-            }
-        });
-    }
 
 }

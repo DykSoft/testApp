@@ -146,7 +146,15 @@ import java.util.*;
         return fullName.compareTo(o.fullName);
     }
 
-/*    private String getEmail(List<Contact> list) {
+    @Override
+    public String toString() {
+        return "Resume{" +
+                "fullName='" + fullName + '\'' +
+                ", uuid='" + uuid + '\'' +
+                '}';
+    }
+
+    /*    private String getEmail(List<Contact> list) {
         for(Contact c: list) {
             if(c.getType() == ContactType.MAIL) {
                 return c.getValue();
