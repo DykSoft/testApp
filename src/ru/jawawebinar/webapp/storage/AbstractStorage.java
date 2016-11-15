@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  * denis
  * 07.11.2016.
  */
-abstract class AbstractStorage implements IStorage {
+abstract class AbstractStorage<C> implements IStorage {
 
     protected final Logger logger = Logger.getLogger(getClass().getName());
 
@@ -21,10 +21,11 @@ abstract class AbstractStorage implements IStorage {
     public void save(Resume r) {
 
         logger.info("Save resume with uuid=" + r.getUuid());
-        if (exist(r.getUuid())) {
+        C ctx = getContext(r);
+        if (exist(ctx)) {
             throw new WebAppException("Resume " + r.getUuid() + "already exist");
         } else {
-            doSave(r);
+            doSave(ctx, r);
         }
 
     }
@@ -32,10 +33,11 @@ abstract class AbstractStorage implements IStorage {
     @Override
     public void delete(String uuid) {
         logger.info("Delete resume with uuid=" + uuid);
-        if (!exist(uuid)) {
+        C ctx = getContext(uuid);
+        if (!exist(ctx)) {
             throw new WebAppException("Resume " + uuid + "not exist");
         } else {
-            doDelete(uuid);
+            doDelete(ctx, uuid);
         }
 
     }
@@ -44,10 +46,11 @@ abstract class AbstractStorage implements IStorage {
     public void update(Resume r) {
 
         logger.info("Update resume with uuid=" + r.getUuid());
-        if (!exist(r.getUuid())) {
+        C ctx = getContext(r.getUuid());
+        if (!exist(ctx)) {
             throw new WebAppException("Resume " + r.getUuid() + "not exist");
         } else {
-            doUpdate(r);
+            doUpdate(ctx, r);
         }
 
     }
@@ -64,12 +67,12 @@ abstract class AbstractStorage implements IStorage {
     public Resume load(String uuid) {
 
         logger.info("Load resume with uuid=" + uuid);
-
-        if (!exist(uuid)) {
+        C ctx = getContext(uuid);
+        if (!exist(ctx)) {
             throw new WebAppException("Resume " + uuid + "not exist");
         }
 
-        return doLoad(uuid);
+        return doLoad(ctx, uuid);
     }
 
     @Override
@@ -110,20 +113,31 @@ abstract class AbstractStorage implements IStorage {
         return doSize();
     }
 
-    protected abstract void doSave(Resume r);
+    private C getContext(Resume r) {
 
-    protected abstract void doDelete(String uuid);
+        return getContext(r.getUuid());
+    }
 
-    protected abstract void doUpdate(Resume r);
+
+    protected abstract void doSave(C ctx, Resume r);
+
+    protected abstract void doDelete(C ctx, String uuid);
+
+    protected abstract void doUpdate(C ctx, Resume r);
 
     protected abstract void doClear();
 
-    protected abstract Resume doLoad(String uuid);
+    protected abstract Resume doLoad(C ctx, String uuid);
 
     protected abstract List<Resume> doGetAllSorted();
 
     protected abstract int doSize();
 
-    protected abstract boolean exist(String uuid);
+    protected abstract C getContext(String uuid);
+
+    protected abstract boolean exist(C ctx);
+
+    /*protected abstract boolean exist(String uuid);*/
+
 
 }

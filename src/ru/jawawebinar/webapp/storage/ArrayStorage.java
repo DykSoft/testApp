@@ -11,7 +11,7 @@ import java.util.List;
  * 01.11.2016.
  */
 
-public class ArrayStorage extends AbstractStorage {
+public class ArrayStorage extends AbstractStorage<Integer> {
 
     private static final int LIMIT = 100;
     private Resume[] array = new Resume[LIMIT];
@@ -25,48 +25,31 @@ public class ArrayStorage extends AbstractStorage {
     }
 
     @Override
-    protected void doSave(Resume r) {
-
-        int idx = getIndex(r.getUuid());
-        //if (idx != -1) throw new WebAppException("Resume " + r.getUuid() + "already exist");
-        array[size++] = r;
-
-    }
-
-    @Override
-    public void doUpdate(Resume r) {
-
-        int idx = getIndex(r.getUuid());
-        //if (idx == -1) throw new WebAppException("Resume " + r.getUuid() + "not exist");
-        array[idx] = r;
-
-    }
-
-    @Override
-    public Resume doLoad(String uuid) {
-
-        int idx = getIndex(uuid);
-        //if (idx == -1) throw new WebAppException("Resume " + uuid + "not exist");
+    protected Resume doLoad(Integer idx, String uuid) {
         return array[idx];
     }
 
 
     @Override
-    protected void doDelete(String uuid) {
+    protected void doSave(Integer ctx, Resume r) {
+        array[size++] = r;
+    }
 
-        int idx = getIndex(uuid);
-        //if (idx == -1) throw new WebAppException("Resume " + uuid + "not exist");
+    @Override
+    protected void doDelete(Integer idx, String uuid) {
         int numMoved = size - idx - 1;
         if (numMoved > 0)
             System.arraycopy(array, idx+1, array, idx,numMoved);
         array[--size] = null; // clear to let GC do its work
+    }
 
+    @Override
+    protected void doUpdate(Integer idx, Resume r) {
+        array[idx] = r;
     }
 
     @Override
     public List<Resume> doGetAllSorted() {
-
-        //Arrays.sort(array,0,size);
         return Arrays.asList(Arrays.copyOf(array,size));
     }
 
@@ -77,7 +60,8 @@ public class ArrayStorage extends AbstractStorage {
         return size;
     }
 
-    private int getIndex(String uuid) {
+    @Override
+    protected Integer getContext(String uuid) {
 
         for (int i = 0; i < LIMIT; i++) {
 
@@ -94,7 +78,8 @@ public class ArrayStorage extends AbstractStorage {
     }
 
     @Override
-    protected boolean exist(String uuid) {
-        return (getIndex(uuid) != -1);
+    protected boolean exist(Integer idx) {
+        return idx != -1;
     }
+
 }

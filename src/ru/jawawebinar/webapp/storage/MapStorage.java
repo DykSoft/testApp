@@ -2,23 +2,44 @@ package ru.jawawebinar.webapp.storage;
 
 import ru.jawawebinar.webapp.model.Resume;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * denis
  * 07.11.2016.
  */
-public class MapStorage extends AbstractStorage {
+public class MapStorage extends AbstractStorage<String> {
 
-    private Map<String,Resume> map = new HashMap<>();
-
+    private Map<String, Resume> map = new HashMap<>();
 
     @Override
-    protected void doSave(Resume r) {
-
-        map.put(r.getUuid(),r);
-
+    protected void doSave(String ctx, Resume r) {
+        map.put(r.getUuid(), r);
     }
+
+    @Override
+    protected void doDelete(String ctx, String uuid) {
+        map.remove(uuid);
+    }
+
+    @Override
+    protected void doUpdate(String ctx, Resume r) {
+        map.put(r.getUuid(), r);
+    }
+
+    @Override
+    protected Resume doLoad(String ctx, String uuid) {
+        return map.get(uuid);
+    }
+
+    @Override
+    protected String getContext(String uuid) {
+        return uuid;
+    }
+
 
     @Override
     public void doClear() {
@@ -27,29 +48,9 @@ public class MapStorage extends AbstractStorage {
 
     }
 
-    @Override
-    public void doUpdate(Resume r) {
-
-        //map.replace(r.getUuid(),r);
-        map.put(r.getUuid(),r);
-
-    }
 
     @Override
-    public Resume doLoad(String uuid) {
-
-        return map.get(uuid);
-    }
-
-    @Override
-    public void doDelete(String uuid) {
-
-        map.remove(uuid);
-
-    }
-
-    @Override
-    public List<Resume> doGetAllSorted()  {
+    public List<Resume> doGetAllSorted() {
 
 
 /*        ArrayList<Resume> list = new ArrayList<>();
@@ -64,7 +65,7 @@ public class MapStorage extends AbstractStorage {
     @Override
     public int doSize() {
 
-       return map.size();
+        return map.size();
     }
 
     @Override
