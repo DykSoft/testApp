@@ -18,7 +18,19 @@ import java.util.*;
 
     //private List<Contact> contacts = new LinkedList<>();
     private Map<ContactType, String> contacts = new EnumMap<>(ContactType.class);
-    private List<Section> sections = new LinkedList<>();
+    private Map<SectionType, Section> sections = new EnumMap<>(SectionType.class);
+
+    public static final Resume EMPTY;
+
+    static {
+        EMPTY = new Resume();
+/*        for(SectionType type: SectionType.values()) {
+            EMPTY.addSection(type,type.getSectionClass().getEmptySection());
+        }*/
+
+
+    }
+
 
     public Resume() {
     }
@@ -35,8 +47,8 @@ import java.util.*;
         this.uuid = uuid;
     }
 
-    public void addSection(Section section) {
-        sections.add(section);
+    public void addSection(SectionType type, Section section) {
+        sections.put(type, section);
 
     }
 
@@ -73,8 +85,12 @@ import java.util.*;
         return location;
     }
 
-    public List<Section> getSections() {
+    public Map<SectionType, Section> getSections() {
         return sections;
+    }
+
+    public Section getSection(SectionType type) {
+        return sections.get(type);
     }
 
     public String getUuid() {

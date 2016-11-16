@@ -37,7 +37,7 @@ abstract class AbstractStorage<C> implements IStorage {
         if (!exist(ctx)) {
             throw new WebAppException("Resume " + uuid + "not exist");
         } else {
-            doDelete(ctx, uuid);
+            doDelete(ctx);
         }
 
     }
@@ -72,7 +72,7 @@ abstract class AbstractStorage<C> implements IStorage {
             throw new WebAppException("Resume " + uuid + "not exist");
         }
 
-        return doLoad(ctx, uuid);
+        return doLoad(ctx);
     }
 
     @Override
@@ -121,13 +121,13 @@ abstract class AbstractStorage<C> implements IStorage {
 
     protected abstract void doSave(C ctx, Resume r);
 
-    protected abstract void doDelete(C ctx, String uuid);
+    protected abstract void doDelete(C ctx);
 
     protected abstract void doUpdate(C ctx, Resume r);
 
     protected abstract void doClear();
 
-    protected abstract Resume doLoad(C ctx, String uuid);
+    protected abstract Resume doLoad(C ctx);
 
     protected abstract List<Resume> doGetAllSorted();
 

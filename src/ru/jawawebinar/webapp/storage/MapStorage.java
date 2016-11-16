@@ -16,22 +16,22 @@ public class MapStorage extends AbstractStorage<String> {
     private Map<String, Resume> map = new HashMap<>();
 
     @Override
-    protected void doSave(String ctx, Resume r) {
-        map.put(r.getUuid(), r);
+    protected void doSave(String uuid, Resume r) {
+        map.put(uuid, r);
     }
 
     @Override
-    protected void doDelete(String ctx, String uuid) {
+    protected void doDelete(String uuid) {
         map.remove(uuid);
     }
 
     @Override
-    protected void doUpdate(String ctx, Resume r) {
-        map.put(r.getUuid(), r);
+    protected void doUpdate(String uuid, Resume r) {
+        map.put(uuid, r);
     }
 
     @Override
-    protected Resume doLoad(String ctx, String uuid) {
+    protected Resume doLoad(String uuid) {
         return map.get(uuid);
     }
 
