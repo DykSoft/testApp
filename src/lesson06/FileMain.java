@@ -1,11 +1,15 @@
 package lesson06;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Iterator;
+import java.util.stream.Stream;
 
 
 /**
@@ -16,23 +20,39 @@ public class FileMain {
 
     public static void main(String[] args) throws IOException {
 
-      Path path = Paths.get("C:\\java\\idea.txt");
+        System.out.println("\nBy stream iterator\n");
 
-        Iterator<String> it = Files.lines(path,StandardCharsets.UTF_8).iterator();
+        Path path = Paths.get("C:\\java\\idea.txt");
 
-        while(it.hasNext()) {
+        Iterator<String> it = Files.lines(path, StandardCharsets.UTF_8).iterator();
+
+        while (it.hasNext()) {
 
             System.out.println(it.next());
 
         }
 
-        System.out.println("**************************");
+        System.out.println("\nBy stream lambde\n");
 
-        Files.lines(Paths.get("C:\\java\\idea.txt"),StandardCharsets.UTF_8).forEach(System.out::println);
+        Files.lines(Paths.get("C:\\java\\idea.txt"), StandardCharsets.UTF_8).forEach(System.out::println);
 
-        System.out.println("**************************");
+        Files.lines(Paths.get("C:\\java\\idea.txt"), StandardCharsets.UTF_8).forEach(line -> System.out.println(line));
 
-        Files.lines(Paths.get("C:\\java\\idea.txt"),StandardCharsets.UTF_8).forEach(line -> System.out.println(line));
+        System.out.println("\nBy stream Stream\n");
+
+        Stream<String> lines = Files.lines(path, StandardCharsets.UTF_8);
+        lines.forEach(System.out::println);
+
+        System.out.println("\nBuffered reader\n");
+
+        BufferedReader reader =  new BufferedReader(new InputStreamReader(new FileInputStream("C:\\java\\idea.txt"),StandardCharsets.UTF_8));
+
+        String str;
+        while ((str = reader.readLine())!=null) {
+            System.out.println(str);
+
+        }
+
 
     }
 }
