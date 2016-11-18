@@ -1,5 +1,6 @@
 package ru.jawawebinar.webapp.model;
 
+import java.io.Serializable;
 import java.util.*;
 
 
@@ -8,7 +9,11 @@ import java.util.*;
  * 27.10.2016.
  */
 //public class Resume implements Comparable<Resume> {
- public class Resume {
+
+// TODO add Serializable and serialVersionUID to all model classes
+ public class Resume implements Serializable {
+
+    static final long serialVersionUID = 1L;
 
     //private final String uuid;
     private String uuid;

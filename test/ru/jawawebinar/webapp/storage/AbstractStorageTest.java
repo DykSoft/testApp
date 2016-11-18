@@ -39,6 +39,8 @@ abstract public class AbstractStorageTest {
         storage.save(R2);
         storage.save(R3);
 
+        //TODO add section
+
     }
 
     @Test
