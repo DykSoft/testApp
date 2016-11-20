@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b95acdd7-121c-499c-8fcc-e98fc602fc8d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/MultiTextSection.java" afterPath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/MultiTextSection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Organization.java" afterPath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Organization.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/OrganizationSection.java" afterPath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/OrganizationSection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Resume.java" afterPath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Resume.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Section.java" afterPath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Section.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/SectionType.java" afterPath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/SectionType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/TextSection.java" afterPath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/TextSection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/storage/DataStreamFileStorage.java" afterPath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/storage/DataStreamFileStorage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/storage/FileStorage.java" afterPath="$PROJECT_DIR$/src/ru/jawawebinar/webapp/storage/FileStorage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/ru/jawawebinar/webapp/storage/AbstractStorageTest.java" afterPath="$PROJECT_DIR$/test/ru/jawawebinar/webapp/storage/AbstractStorageTest.java" />
     </list>
     <ignored path="testApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,17 +52,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IStorage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/jawawebinar/webapp/storage/IStorage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataStreamFileStorage.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DataStreamFileStorage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/jawawebinar/webapp/storage/DataStreamFileStorage.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-279">
@@ -138,11 +120,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractStorageTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AbstractStorageTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/ru/jawawebinar/webapp/storage/AbstractStorageTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="82" column="44" selection-start-line="82" selection-start-column="44" selection-end-line="82" selection-end-column="44" />
+            <state relative-caret-position="267">
+              <caret line="35" column="42" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -186,7 +168,6 @@
         <option value="$PROJECT_DIR$/test/ru/jawawebinar/webapp/storage/DateStreamFileStorageTest.java" />
         <option value="$PROJECT_DIR$/test/ru/jawawebinar/webapp/storage/SerializeFileStorageTest.java" />
         <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/storage/DateStreamFileStorage.java" />
-        <option value="$PROJECT_DIR$/test/ru/jawawebinar/webapp/storage/AbstractStorageTest.java" />
         <option value="$PROJECT_DIR$/test/ru/jawawebinar/webapp/storage/DataStreamFileStorageTest.java" />
         <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/SectionType.java" />
         <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Section.java" />
@@ -197,6 +178,7 @@
         <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/storage/FileStorage.java" />
         <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/model/Resume.java" />
         <option value="$PROJECT_DIR$/src/ru/jawawebinar/webapp/storage/DataStreamFileStorage.java" />
+        <option value="$PROJECT_DIR$/test/ru/jawawebinar/webapp/storage/AbstractStorageTest.java" />
       </list>
     </option>
   </component>
@@ -431,6 +413,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="file_storage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -461,7 +457,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SerializeFileStorageTest">
+  <component name="RunManager" selected="JUnit.DataStreamFileStorageTest">
     <configuration default="false" name="ArrayStorageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="testApp" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -751,8 +747,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.SerializeFileStorageTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.DataStreamFileStorageTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.DataStreamFileStorageTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.SerializeFileStorageTest" />
         <item index="2" class="java.lang.String" itemvalue="Application.FileMain" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.MapStorageTest" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.ArrayStorageTest" />
@@ -797,7 +793,7 @@
       <workItem from="1479495349560" duration="3474000" />
       <workItem from="1479503595815" duration="6132000" />
       <workItem from="1479662140861" duration="9004000" />
-      <workItem from="1479673776587" duration="2952000" />
+      <workItem from="1479673776587" duration="3646000" />
     </task>
     <task id="LOCAL-00001" summary="reiport">
       <created>1478295633400</created>
@@ -904,16 +900,17 @@
       <option name="project" value="LOCAL" />
       <updated>1479509703935</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="filestorage imp">
+      <created>1479676763936</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1479676763936</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DataStreamFileStorageTest - 2016.11.21 at 00h 06m 28s.xml">
-      <configuration name="DataStreamFileStorageTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DataStreamFileStorageTest - 2016.11.21 at 00h 07m 01s.xml">
-      <configuration name="DataStreamFileStorageTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="DataStreamFileStorageTest - 2016.11.21 at 00h 07m 27s.xml">
       <configuration name="DataStreamFileStorageTest" configurationId="JUnit" />
     </history-entry>
@@ -935,12 +932,18 @@
     <history-entry file="DataStreamFileStorageTest - 2016.11.21 at 00h 17m 20s.xml">
       <configuration name="DataStreamFileStorageTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="DataStreamFileStorageTest - 2016.11.21 at 00h 23m 44s.xml">
+      <configuration name="DataStreamFileStorageTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DataStreamFileStorageTest - 2016.11.21 at 00h 29m 47s.xml">
+      <configuration name="DataStreamFileStorageTest" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="SerializeFileStorageTest - 2016.11.21 at 00h 17m 44s.xml">
       <configuration name="SerializeFileStorageTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97166000" />
+    <option name="totallyTimeSpent" value="97860000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -962,7 +965,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19812427" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36107856" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2811159" sideWeight="0.6803279" order="0" side_tool="false" content_ui="combo" />
@@ -1015,7 +1018,8 @@
     <MESSAGE value="files stream" />
     <MESSAGE value="new class FileStorage" />
     <MESSAGE value="serializable" />
-    <option name="LAST_COMMIT_MESSAGE" value="serializable" />
+    <MESSAGE value="filestorage imp" />
+    <option name="LAST_COMMIT_MESSAGE" value="filestorage imp" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1032,14 +1036,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ru/jawawebinar/webapp/storage/ArrayStorage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_77/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10008">
@@ -1332,14 +1328,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/ru/jawawebinar/webapp/storage/AbstractStorageTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="82" column="44" selection-start-line="82" selection-start-column="44" selection-end-line="82" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/ru/jawawebinar/webapp/storage/DataStreamFileStorageTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -1385,6 +1373,22 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file_storage/acea423f-cad4-48ce-af3b-74407c5338df">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ru/jawawebinar/webapp/storage/AbstractStorageTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="35" column="42" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>

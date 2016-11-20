@@ -4,13 +4,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import ru.jawawebinar.webapp.WebAppException;
-import ru.jawawebinar.webapp.model.ContactType;
-import ru.jawawebinar.webapp.model.Resume;
+import ru.jawawebinar.webapp.model.*;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 /**
  * denis
@@ -30,6 +26,18 @@ abstract public class AbstractStorageTest {
         R1 = new Resume("Полное Имя1", "location1");
         R1.addContact(ContactType.MAIL, "mail1@ya.ru");
         R1.addContact(ContactType.PHONE, "11111");
+
+        List<String> list = new ArrayList<>();
+        list.add("adadadad123");
+        list.add("dadadadad434");
+        list.add("fsdfsf4545");
+
+        Section multiSection = new MultiTextSection(list);
+        R1.addSection(SectionType.ACHIEVEMENT,multiSection);
+
+        Section textSection = new TextSection("Я был здесь!","jsdnahdfk nfdnsf");
+        R1.addSection(SectionType.OBJECTIVE,textSection);
+
         R2 = new Resume("Полное Имя2", null);
         R2.addContact(ContactType.SKYPE, "skype2");
         R2.addContact(ContactType.PHONE, "22222");
