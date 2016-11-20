@@ -1,10 +1,12 @@
 package ru.jawawebinar.webapp.model;
 
+import java.io.Serializable;
+
 /**
  * denis
  * 31.10.2016.
  */
-public enum SectionType {
+public enum SectionType implements Serializable {
     OBJECTIVE("Позиция"),
     ACHIEVEMENT("Достижения"),
     QUALIFICATION("Квалификация"),
@@ -20,4 +22,6 @@ public enum SectionType {
     public String getTitle() {
         return title;
     }
+
+    public static SectionType[] VALUES = SectionType.values();
 }

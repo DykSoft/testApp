@@ -150,6 +150,10 @@ import java.util.*;
         this.uuid = uuid;
     }*/
 
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }

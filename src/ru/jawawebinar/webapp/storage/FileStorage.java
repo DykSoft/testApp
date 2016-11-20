@@ -1,18 +1,18 @@
 package ru.jawawebinar.webapp.storage;
 
 import ru.jawawebinar.webapp.WebAppException;
-import ru.jawawebinar.webapp.model.ContactType;
 import ru.jawawebinar.webapp.model.Resume;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 /**
  * denis
  * 17.11.2016.
  */
-public class FileStorage extends AbstractStorage<File> {
+/*public class FileStorage extends AbstractStorage<File> {*/
+abstract class FileStorage extends AbstractStorage<File> {
 
     private File dir;
 
@@ -38,7 +38,10 @@ public class FileStorage extends AbstractStorage<File> {
 
     }
 
-    protected void write(File file, Resume r) {
+    protected abstract void write(File file, Resume r);
+    protected abstract Resume read(File file);
+
+    /*protected void write(File file, Resume r) {
 
         //TODO fix NullPointerException
 
@@ -60,14 +63,14 @@ public class FileStorage extends AbstractStorage<File> {
 
             }
 
-            //TODO add sectuion
+            //TODO add section
 
         } catch (IOException e) {
             throw new WebAppException("Could' t write file " + file.getAbsolutePath(), r, e);
         }
-    }
+    }*/
 
-    protected Resume read(File file) {
+    /*protected Resume read(File file) {
 
         Resume r = new Resume();
 
@@ -91,7 +94,7 @@ public class FileStorage extends AbstractStorage<File> {
 
         return null;
 
-    }
+    }*/
 
     @Override
     protected void doDelete(File file) {
@@ -103,6 +106,7 @@ public class FileStorage extends AbstractStorage<File> {
 
     @Override
     protected void doUpdate(File file, Resume r) {
+
         write(file, r);
 
     }

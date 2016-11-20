@@ -1,5 +1,7 @@
 package ru.jawawebinar.webapp.model;
 
+import java.io.Serializable;
+
 /**
  * denis
  * 29.10.2016.
@@ -14,7 +16,7 @@ package ru.jawawebinar.webapp.model;
 }*/
 
 
-public class Section {
+public class Section implements Serializable {
 
     /*protected SectionType type;*/
 
