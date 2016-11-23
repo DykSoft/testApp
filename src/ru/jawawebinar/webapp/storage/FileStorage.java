@@ -6,6 +6,7 @@ import ru.jawawebinar.webapp.model.Resume;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -133,12 +134,12 @@ abstract class FileStorage extends AbstractStorage<File> {
     @Override
     protected List<Resume> doGetAllSorted(){
 
-        List<Resume> resumeList = new ArrayList<>();
-
         File[] files = dir.listFiles();
         if (files == null) {
-            throw new WebAppException("Files " + dir.getAbsolutePath() + " can not be found");
+            return Collections.emptyList();
         }
+
+        List<Resume> resumeList = new ArrayList<>();
 
         for (File file : files) {
             resumeList.add(read(file));

@@ -26,8 +26,12 @@ abstract public class AbstractStorageTest {
         R1 = new Resume("Полное Имя1", "location1");
         R1.addContact(ContactType.MAIL, "mail1@ya.ru");
         R1.addContact(ContactType.PHONE, "11111");
+        R1.addObjective("Objective1");
+        R1.addMultiTextSection(SectionType.ACHIEVEMENT,"Achivment11","Achivment12");
+        R1.addMultiTextSection(SectionType.QUALIFICATION,"Java","SQL");
+        //TODO add EXPERIENCE and EDUCATION
 
-        List<String> list = new ArrayList<>();
+ /*       List<String> list = new ArrayList<>();
         list.add("adadadad123");
         list.add("dadadadad434");
         list.add("fsdfsf4545");
@@ -36,7 +40,7 @@ abstract public class AbstractStorageTest {
         R1.addSection(SectionType.ACHIEVEMENT,multiSection);
 
         Section textSection = new TextSection("Я был здесь!","jsdnahdfk nfdnsf");
-        R1.addSection(SectionType.OBJECTIVE,textSection);
+        R1.addSection(SectionType.OBJECTIVE,textSection);*/
 
         R2 = new Resume("Полное Имя2", null);
         R2.addContact(ContactType.SKYPE, "skype2");
@@ -46,6 +50,8 @@ abstract public class AbstractStorageTest {
         storage.save(R1);
         storage.save(R2);
         storage.save(R3);
+
+
 
 
     }

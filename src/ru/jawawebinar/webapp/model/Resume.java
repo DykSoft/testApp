@@ -46,6 +46,10 @@ import java.util.*;
         this(UUID.randomUUID().toString(),fullName, location);
     }
 
+    public Resume(String uuid) {
+        this.uuid = uuid;
+    }
+
     public Resume(String uuid, String fullName, String location) {
         this.fullName = fullName;
         this.location = location;
@@ -177,6 +181,14 @@ import java.util.*;
                 "fullName='" + fullName + '\'' +
                 ", uuid='" + uuid + '\'' +
                 '}';
+    }
+
+    public void addObjective(String value) {
+        addSection(SectionType.OBJECTIVE, new TextSection(value));
+    }
+
+    public void addMultiTextSection(SectionType type, String... values) {
+        addSection(type, new MultiTextSection(values));
     }
 
     /*    private String getEmail(List<Contact> list) {
