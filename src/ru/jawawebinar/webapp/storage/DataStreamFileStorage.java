@@ -1,6 +1,5 @@
 package ru.jawawebinar.webapp.storage;
 
-import ru.jawawebinar.webapp.WebAppException;
 import ru.jawawebinar.webapp.model.*;
 
 import java.io.*;
@@ -16,23 +15,18 @@ import java.util.Map;
  */
 public class DataStreamFileStorage extends FileStorage {
 
-    //private File dir;
     private static final String NULL = "null";
 
     public DataStreamFileStorage(String path) {
         super(path);
     }
 
-    protected void write(File file, Resume r) {
+    @Override
+    protected void write(OutputStream os, Resume r) throws IOException {
 
-        //auto closable resources
-        try (FileOutputStream fos = new FileOutputStream(file);
-             DataOutputStream dos = new DataOutputStream(fos)) {
+        try (final DataOutputStream dos = new DataOutputStream(os)) {
 
-/*            dos.writeUTF(String.valueOf(r.getFullName()));
-            dos.writeUTF(String.valueOf(r.getLocation()));
-            dos.writeUTF(String.valueOf(r.getHomePage()));*/
-
+            writeString(dos, r.getUuid());
             writeString(dos, r.getFullName());
             writeString(dos, r.getLocation());
             writeString(dos, r.getHomePage());
@@ -77,10 +71,6 @@ public class DataStreamFileStorage extends FileStorage {
 
                     dos.writeInt(-1);
                     writeString(dos, ((TextSection) section).getValue());
-                    //dos.writeUTF(section.getValue());
-                    //dos.writeUTF(section.getTitle());
-                    //dos.writeUTF(section.getComment());
-
 
                 } else if (section.getClass().equals(MultiTextSection.class)) {
 
@@ -106,36 +96,26 @@ public class DataStreamFileStorage extends FileStorage {
             }
 
 
-        } catch (
-                IOException e
-                )
-
-        {
-            throw new WebAppException("Could' t write file " + file.getAbsolutePath(), r, e);
         }
 
     }
 
 
-    protected Resume read(File file) {
+    /*protected Resume read(File file) {*/
+    @Override
+    protected Resume read(InputStream is) throws IOException {
 
-        Resume r = new Resume(file.getName());
-        //r.setUuid(file.getName());
+        Resume r = new Resume();
 
-        try (InputStream is = new FileInputStream(file); DataInputStream dis = new DataInputStream(is)) {
+        try (DataInputStream dis = new DataInputStream(is)) {
 
-/*            r.setFullName(dis.readUTF());
-            r.setLocation(dis.readUTF());
-            r.setHomePage(dis.readUTF());*/
-
+            r.setUuid(readString(dis));
             r.setFullName(readString(dis));
             r.setLocation(readString(dis));
             r.setHomePage(readString(dis));
 
-
             int contactSize = dis.readInt();
             for (int i = 0; i < contactSize; i++) {
-                //r.addContact(ContactType.VALUES[dis.readInt()], dis.readUTF());
                 r.addContact(ContactType.VALUES[dis.readInt()], readString(dis));
             }
 
@@ -170,15 +150,10 @@ public class DataStreamFileStorage extends FileStorage {
                     r.addSection(sectionType, new MultiTextSection(readList(dis, multiTextSectionSize, () -> readString(dis))));
 
                 } else if (multiTextSectionSize == -1) {
-                    //r.addSection(st, new TextSection(dis.readUTF(), dis.readUTF()));
-                    //r.addSection(st, new TextSection(dis.readUTF()));
                     r.addSection(sectionType, new TextSection(readString(dis)));
                 }
             }
 
-        } catch (IOException e) {
-
-            throw new WebAppException("File not found " + file.getAbsolutePath(), e);
         }
 
         return r;

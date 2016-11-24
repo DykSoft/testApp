@@ -2,7 +2,6 @@ package ru.jawawebinar.webapp.storage;
 
 import ru.jawawebinar.webapp.WebAppException;
 import ru.jawawebinar.webapp.model.Resume;
-
 import java.io.*;
 
 /**
@@ -17,28 +16,20 @@ public class SerializeFileStorage extends FileStorage {
         super(path);
     }
 
-    protected void write(File file, Resume r) {
+    @Override
+    protected void write(OutputStream os, Resume r) throws IOException {
 
-        //auto closable resources
-        try (FileOutputStream fos = new FileOutputStream(file);
-             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(os)) {
              oos.writeObject(r);
-        } catch (IOException e) {
-            throw new WebAppException("Could' t write file " + file.getAbsolutePath(), r, e);
         }
     }
 
-    protected Resume read(File file) {
+    @Override
+    protected Resume read(InputStream is) throws IOException {
 
-        Resume r = new Resume();
-
-        try (InputStream is = new FileInputStream(file); ObjectInputStream ois = new ObjectInputStream(is)) {
+        try (ObjectInputStream ois = new ObjectInputStream(is)) {
 
            return (Resume)ois.readObject();
-
-        } catch (IOException e) {
-
-            throw new WebAppException("File not found " + file.getAbsolutePath(), e);
 
         } catch (ClassNotFoundException e) {
 

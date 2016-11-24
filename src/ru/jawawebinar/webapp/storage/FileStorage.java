@@ -3,8 +3,7 @@ package ru.jawawebinar.webapp.storage;
 import ru.jawawebinar.webapp.WebAppException;
 import ru.jawawebinar.webapp.model.Resume;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -40,12 +39,35 @@ abstract class FileStorage extends AbstractStorage<File> {
 
     }
 
-    protected abstract void write(File file, Resume r);
-    protected abstract Resume read(File file);
+    protected void write(File file, Resume r) {
+
+        try {
+            write(new FileOutputStream(file), r);
+
+        } catch (IOException e) {
+            throw new WebAppException("Couldn't write file " + file.getAbsolutePath(),r,e);
+        }
+
+
+    }
+
+    protected Resume read(File file) {
+
+        try {
+            return read(new FileInputStream(file));
+
+        } catch (IOException e) {
+            throw new WebAppException("Couldn't read file " + file.getAbsolutePath(), e);
+        }
+
+    }
+
+    //abstract protected void write(File file, Resume r);
+    //abstract protected Resume read(File file);
+    abstract protected void write(OutputStream os, Resume r) throws IOException;
+    abstract protected Resume read(InputStream is) throws IOException;
 
     /*protected void write(File file, Resume r) {
-
-        //TODO fix NullPointerException
 
         //auto closable resources
         try (FileOutputStream fos = new FileOutputStream(file);
@@ -64,8 +86,6 @@ abstract class FileStorage extends AbstractStorage<File> {
                 dos.writeUTF(entry.getValue());
 
             }
-
-            //TODO add section
 
         } catch (IOException e) {
             throw new WebAppException("Could' t write file " + file.getAbsolutePath(), r, e);
@@ -86,8 +106,6 @@ abstract class FileStorage extends AbstractStorage<File> {
             for (int i = 0; i < contactSize; i++) {
                 r.addContact(ContactType.VALUES[dis.readInt()], dis.readUTF());
             }
-
-            // TODO add sections
 
         } catch (IOException e) {
 
