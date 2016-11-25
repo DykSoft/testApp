@@ -191,6 +191,12 @@ import java.util.*;
         addSection(type, new MultiTextSection(values));
     }
 
+    public void addOrganizationSection(SectionType sectionType,  Organization... organizations) {
+
+        addSection(sectionType, new OrganizationSection(organizations));
+
+    }
+
     /*    private String getEmail(List<Contact> list) {
         for(Contact c: list) {
             if(c.getType() == ContactType.MAIL) {
