@@ -1,5 +1,7 @@
 package ru.jawawebinar.webapp.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Month;
@@ -11,6 +13,7 @@ import java.util.List;
  * denis
  * 29.10.2016.
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Organization implements Serializable {
 
 
@@ -29,7 +32,8 @@ public class Organization implements Serializable {
         this.periods = periods;
     }
 
-    public static class Period {
+    @XmlAccessorType(XmlAccessType.FIELD)
+    public static class Period implements Serializable {
         //public class Period {
 
         public static final LocalDate NOW = LocalDate.of(3000, 1, 1);

@@ -38,6 +38,7 @@ abstract public class AbstractStorageTest {
         R1.addMultiTextSection(SectionType.ACHIEVEMENT,"Achivment11","Achivment12");
         R1.addMultiTextSection(SectionType.QUALIFICATION,"Java","SQL");
 
+
         R1.addOrganizationSection(SectionType.EXPERIENCE,
                 new Organization("Organization11",null,
                         new Organization.Period(LocalDate.of(2005, Month.JANUARY, 1),Organization.Period.NOW, "position","contetnt!"),
@@ -49,6 +50,7 @@ abstract public class AbstractStorageTest {
                         new Organization.Period(1996,Month.JANUARY, 2000, Month.DECEMBER, "aspirant",null),
                         new Organization.Period(2001, Month.MARCH, 2005, Month.JANUARY, "student","IT facultet")),
                 new Organization("Organization12","http://Organization12.ru"));
+
 
         //TODO add EXPERIENCE and EDUCATION
 

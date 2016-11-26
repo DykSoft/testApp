@@ -1,5 +1,7 @@
 package ru.jawawebinar.webapp.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import java.io.Serializable;
 
 /**
@@ -15,9 +17,11 @@ import java.io.Serializable;
     EDUCATION
 }*/
 
-
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Section implements Serializable {
 
     /*protected SectionType type;*/
 
+    public Section() {
+    }
 }

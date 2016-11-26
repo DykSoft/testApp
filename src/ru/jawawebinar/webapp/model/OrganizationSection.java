@@ -9,9 +9,13 @@ import java.util.List;
  * denis
  * 01.11.2016.
  */
+
 public class OrganizationSection extends Section implements Serializable {
 
     private List<Organization> values;
+
+    public OrganizationSection() {
+    }
 
     public OrganizationSection(Organization... values) {
         this.values = new LinkedList<>(Arrays.asList(values));

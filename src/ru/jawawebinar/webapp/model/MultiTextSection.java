@@ -16,6 +16,9 @@ public class MultiTextSection extends Section implements Serializable {
 
     private List<String> values;
 
+    public MultiTextSection() {
+    }
+
     public MultiTextSection(String... values) {
         this(new LinkedList<String>(Arrays.asList(values)));
     }
