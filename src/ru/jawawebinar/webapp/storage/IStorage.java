@@ -17,6 +17,7 @@ public interface IStorage {
     void delete(String uuid);
     Collection<Resume> getAllSorted();
     int size();
+    boolean isSectionSupported();
 
 
 

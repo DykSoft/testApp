@@ -23,7 +23,7 @@ public class XmlFileStorage extends FileStorage {
     @Override
     protected void write(OutputStream os, Resume resume) throws IOException {
 
-        try(Writer w = new OutputStreamWriter(os, StandardCharsets.UTF_8)) {
+        try (Writer w = new OutputStreamWriter(os, StandardCharsets.UTF_8)) {
 
             xmlParser.marshall(resume, w);
         }
@@ -32,7 +32,7 @@ public class XmlFileStorage extends FileStorage {
 
     @Override
     protected Resume read(InputStream is) throws IOException {
-        try (Reader r = new InputStreamReader(is,StandardCharsets.UTF_8)){
+        try (Reader r = new InputStreamReader(is, StandardCharsets.UTF_8)) {
 
             return xmlParser.unmarshall(r);
 
@@ -40,4 +40,8 @@ public class XmlFileStorage extends FileStorage {
     }
 
 
+    @Override
+    public boolean isSectionSupported() {
+        return true;
+    }
 }

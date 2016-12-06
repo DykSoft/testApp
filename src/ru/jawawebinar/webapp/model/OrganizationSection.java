@@ -1,6 +1,5 @@
 package ru.jawawebinar.webapp.model;
 
-import java.io.Serializable;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -10,7 +9,7 @@ import java.util.List;
  * 01.11.2016.
  */
 
-public class OrganizationSection extends Section implements Serializable {
+public class OrganizationSection extends Section {
 
     private List<Organization> values;
 
@@ -19,5 +18,13 @@ public class OrganizationSection extends Section implements Serializable {
 
     public OrganizationSection(Organization... values) {
         this.values = new LinkedList<>(Arrays.asList(values));
+    }
+
+    public List<Organization> getValues() {
+        return values;
+    }
+
+    public void setValues(List<Organization> values) {
+        this.values = values;
     }
 }

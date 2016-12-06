@@ -73,4 +73,9 @@ public class MapStorage extends AbstractStorage<String> {
         return map.containsKey(uuid);
         //return map.get(uuid) != null;
     }
+
+    @Override
+    public boolean isSectionSupported() {
+        return true;
+    }
 }

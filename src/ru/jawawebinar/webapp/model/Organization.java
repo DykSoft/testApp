@@ -16,6 +16,23 @@ import java.util.List;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Organization implements Serializable {
 
+    public Link getLink() {
+        return link;
+    }
+
+    public void setLink(Link link) {
+        this.link = link;
+    }
+
+    public List<Period> getPeriods() {
+        return periods;
+    }
+
+    public void setPeriods(List<Period> periods) {
+        this.periods = periods;
+    }
+
+    static final long serialVersionUID = 1L;
 
     private Link link;
     private List<Period> periods;
@@ -57,6 +74,37 @@ public class Organization implements Serializable {
         }
 
 
+        public LocalDate getStartDate() {
+            return startDate;
+        }
+
+        public void setStartDate(LocalDate startDate) {
+            this.startDate = startDate;
+        }
+
+        public LocalDate getEndDate() {
+            return endDate;
+        }
+
+        public void setEndDate(LocalDate endDate) {
+            this.endDate = endDate;
+        }
+
+        public String getPosition() {
+            return position;
+        }
+
+        public void setPosition(String position) {
+            this.position = position;
+        }
+
+        public String getContent() {
+            return content;
+        }
+
+        public void setContent(String content) {
+            this.content = content;
+        }
     }
 
     /*public static final String DATE_FORMAT1 = "dd.MM.yyyy";

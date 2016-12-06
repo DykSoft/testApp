@@ -29,8 +29,6 @@ abstract public class AbstractStorageTest {
     @Before
     public void setUp() throws Exception {
 
-        storage.clear();
-
         R1 = new Resume("Полное Имя1", "location1");
         R1.addContact(ContactType.MAIL, "mail1@ya.ru");
         R1.addContact(ContactType.PHONE, "11111");
@@ -39,17 +37,20 @@ abstract public class AbstractStorageTest {
         R1.addMultiTextSection(SectionType.QUALIFICATION,"Java","SQL");
 
 
-        R1.addOrganizationSection(SectionType.EXPERIENCE,
-                new Organization("Organization11",null,
-                        new Organization.Period(LocalDate.of(2005, Month.JANUARY, 1),Organization.Period.NOW, "position","contetnt!"),
-                        new Organization.Period(2001, Month.MARCH, 2005, Month.JANUARY, "position2","content2")),
-                new Organization("Organization12","http://Organization12.ru"));
+        if (storage.isSectionSupported()) {
 
-        R1.addOrganizationSection(SectionType.EDUCATION,
-                new Organization("Institute",null,
-                        new Organization.Period(1996,Month.JANUARY, 2000, Month.DECEMBER, "aspirant",null),
-                        new Organization.Period(2001, Month.MARCH, 2005, Month.JANUARY, "student","IT facultet")),
-                new Organization("Organization12","http://Organization12.ru"));
+            R1.addOrganizationSection(SectionType.EXPERIENCE,
+                    new Organization("Organization11", null,
+                            new Organization.Period(LocalDate.of(2005, Month.JANUARY, 1), Organization.Period.NOW, "position", "contetnt!"),
+                            new Organization.Period(2001, Month.MARCH, 2005, Month.JANUARY, "position2", "content2")),
+                    new Organization("Organization12", "http://Organization12.ru"));
+
+            R1.addOrganizationSection(SectionType.EDUCATION,
+                    new Organization("Institute", null,
+                            new Organization.Period(1996, Month.JANUARY, 2000, Month.DECEMBER, "aspirant", null),
+                            new Organization.Period(2001, Month.MARCH, 2005, Month.JANUARY, "student", "IT facultet")),
+                    new Organization("Organization12", "http://Organization12.ru"));
+        }
 
 
         //TODO add EXPERIENCE and EDUCATION
@@ -65,10 +66,12 @@ abstract public class AbstractStorageTest {
         Section textSection = new TextSection("Я был здесь!","jsdnahdfk nfdnsf");
         R1.addSection(SectionType.OBJECTIVE,textSection);*/
 
-        R2 = new Resume("Полное Имя2", null);
+        R2 = new Resume("Полное Имя2", "location11");
         R2.addContact(ContactType.SKYPE, "skype2");
         R2.addContact(ContactType.PHONE, "22222");
         R3 = new Resume("Полное Имя3", null);
+
+        storage.clear();
 
         storage.save(R1);
         storage.save(R2);

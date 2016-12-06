@@ -56,9 +56,15 @@ import java.util.*;
     }
 
     public Resume(String uuid, String fullName, String location) {
+
+        //Objects.requireNonNull(uuid,"uuid is null");
+        //Objects.requireNonNull(fullName,"full name is null");
+        //Objects.requireNonNull(location,"location is null");
+
+        this.uuid = uuid;
         this.fullName = fullName;
         this.location = location;
-        this.uuid = uuid;
+
     }
 
     public void addSection(SectionType type, Section section) {

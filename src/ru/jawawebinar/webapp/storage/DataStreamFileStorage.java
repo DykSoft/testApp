@@ -3,10 +3,11 @@ package ru.jawawebinar.webapp.storage;
 import ru.jawawebinar.webapp.model.*;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.*;
+
+import static javafx.scene.input.KeyCode.T;
 
 
 /**
@@ -67,9 +68,12 @@ public class DataStreamFileStorage extends FileStorage {
                 dos.writeInt(sectionType.ordinal());
                 Section section = entry.getValue();
 
+                writeString(dos,section.getClass().getName());
+
                 if (section.getClass().equals(TextSection.class)) {
 
                     dos.writeInt(-1);
+                    writeString(dos,TextSection.class.getName());
                     writeString(dos, ((TextSection) section).getValue());
 
                 } else if (section.getClass().equals(MultiTextSection.class)) {
@@ -88,7 +92,21 @@ public class DataStreamFileStorage extends FileStorage {
                         }
                     });
 */
+
                     writeCollection(dos, ((MultiTextSection) section).getValues(), value -> writeString(dos, value));
+
+                } else if (section.getClass().equals(OrganizationSection.class)) {
+
+                    writeCollection(dos, ((OrganizationSection) section).getValues(), org -> {
+                        dos.writeUTF(org.getLink().getName());
+                        dos.writeUTF(org.getLink().getUrl());
+                        writeCollection(dos, org.getPeriods(), period -> {
+                            writeLocalDate(dos,period.getStartDate());
+                            writeLocalDate(dos,period.getEndDate());
+                            dos.writeUTF(period.getPosition());
+                            dos.writeUTF(period.getContent());
+                        });
+                    });
 
                 }
 
@@ -124,6 +142,7 @@ public class DataStreamFileStorage extends FileStorage {
 
                 SectionType sectionType = SectionType.VALUES[dis.readInt()];
 
+                String className = readString(dis);
                 int multiTextSectionSize = dis.readInt();
 
                 if (multiTextSectionSize > 0) {
@@ -147,7 +166,38 @@ public class DataStreamFileStorage extends FileStorage {
 
                     r.addSection(sectionType, new MultiTextSection(list));*/
 
-                    r.addSection(sectionType, new MultiTextSection(readList(dis, multiTextSectionSize, () -> readString(dis))));
+                    if (MultiTextSection.class.getName().equals(className)) {
+                        r.addSection(sectionType, new MultiTextSection(readList(dis, multiTextSectionSize, new ElementReader<String>() {
+                            @Override
+                            public String read() throws IOException {
+                                return DataStreamFileStorage.this.readString(dis);
+                            }
+                        })));
+                    } /*else if (OrganizationSection.class.getName().equals(className)) {
+                        r.addSection(sectionType, new OrganizationSection(readList(dis, multiTextSectionSize, new ElementReader<Organization>() {
+                            @Override
+                            public Organization read() throws IOException {
+                                return new Organization(new Link(dis.readUTF(),dis.readUTF(), readList(dis, dis.readInt(), new ElementReader<T>() {
+                                            @Override
+                                            public T read() throws IOException {
+                                                return null;
+                                            }
+                                        }
+
+
+
+                                        *//*new ElementReader<Organization.Period>() {
+                                    @Override
+                                    public Organization.Period read() throws IOException {
+                                        return null;
+
+                                        //return new Organization.Period(readLocalDate(dis),readLocalDate(dis),readString(dis),readString(dis));
+                                    }
+                                })));
+                            }
+*//*
+                            };
+                    }*/
 
                 } else if (multiTextSectionSize == -1) {
                     r.addSection(sectionType, new TextSection(readString(dis)));
@@ -168,6 +218,11 @@ public class DataStreamFileStorage extends FileStorage {
         String str = dis.readUTF();
         return str.equals(NULL) ? null : str;
 
+    }
+
+    @Override
+    public boolean isSectionSupported() {
+        return true;
     }
 
     private interface ElementWriter<T> {
@@ -199,6 +254,16 @@ public class DataStreamFileStorage extends FileStorage {
 
         return list;
 
+    }
+
+    private void writeLocalDate(DataOutputStream dos, LocalDate ld) throws IOException {
+        Objects.requireNonNull(ld, "LocalDate cannot be null, use Period.NOW");
+        dos.writeInt(ld.getYear());
+        dos.writeUTF(ld.getMonth().name());
+    }
+
+    private LocalDate readLocalDate(DataInputStream dis) throws IOException {
+        return LocalDate.of(dis.readInt(), Month.valueOf(dis.readUTF()), 1);
     }
 
 }

@@ -17,6 +17,11 @@ public class SerializeFileStorage extends FileStorage {
     }
 
     @Override
+    public boolean isSectionSupported() {
+        return true;
+    }
+
+    @Override
     protected void write(OutputStream os, Resume r) throws IOException {
 
         try (ObjectOutputStream oos = new ObjectOutputStream(os)) {
