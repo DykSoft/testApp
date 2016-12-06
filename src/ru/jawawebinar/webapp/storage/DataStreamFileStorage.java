@@ -68,12 +68,12 @@ public class DataStreamFileStorage extends FileStorage {
                 dos.writeInt(sectionType.ordinal());
                 Section section = entry.getValue();
 
-                writeString(dos,section.getClass().getName());
+                writeString(dos, section.getClass().getName());
 
                 if (section.getClass().equals(TextSection.class)) {
 
                     dos.writeInt(-1);
-                    writeString(dos,TextSection.class.getName());
+                    writeString(dos, TextSection.class.getName());
                     writeString(dos, ((TextSection) section).getValue());
 
                 } else if (section.getClass().equals(MultiTextSection.class)) {
@@ -97,15 +97,21 @@ public class DataStreamFileStorage extends FileStorage {
 
                 } else if (section.getClass().equals(OrganizationSection.class)) {
 
-                    writeCollection(dos, ((OrganizationSection) section).getValues(), org -> {
-                        dos.writeUTF(org.getLink().getName());
-                        dos.writeUTF(org.getLink().getUrl());
-                        writeCollection(dos, org.getPeriods(), period -> {
-                            writeLocalDate(dos,period.getStartDate());
-                            writeLocalDate(dos,period.getEndDate());
-                            dos.writeUTF(period.getPosition());
-                            dos.writeUTF(period.getContent());
-                        });
+                    writeCollection(dos, ((OrganizationSection) section).getValues(), new ElementWriter<Organization>() {
+                        @Override
+                        public void write(Organization org) throws IOException {
+                            dos.writeUTF(org.getLink().getName());
+                            dos.writeUTF(org.getLink().getUrl());
+                            DataStreamFileStorage.this.writeCollection(dos, org.getPeriods(), new ElementWriter<Organization.Period>() {
+                                @Override
+                                public void write(Organization.Period period) throws IOException {
+                                    DataStreamFileStorage.this.writeLocalDate(dos, period.getStartDate());
+                                    DataStreamFileStorage.this.writeLocalDate(dos, period.getEndDate());
+                                    dos.writeUTF(period.getPosition());
+                                    dos.writeUTF(period.getContent());
+                                }
+                            });
+                        }
                     });
 
                 }
@@ -143,9 +149,9 @@ public class DataStreamFileStorage extends FileStorage {
                 SectionType sectionType = SectionType.VALUES[dis.readInt()];
 
                 String className = readString(dis);
-                int multiTextSectionSize = dis.readInt();
+                //int multiTextSectionSize = dis.readInt();
 
-                if (multiTextSectionSize > 0) {
+                if (MultiTextSection.class.getName().equals(className)) {
 
       /*              List<String> list = new ArrayList<>(multiTextSectionSize);
 
@@ -166,14 +172,14 @@ public class DataStreamFileStorage extends FileStorage {
 
                     r.addSection(sectionType, new MultiTextSection(list));*/
 
-                    if (MultiTextSection.class.getName().equals(className)) {
-                        r.addSection(sectionType, new MultiTextSection(readList(dis, multiTextSectionSize, new ElementReader<String>() {
-                            @Override
-                            public String read() throws IOException {
-                                return DataStreamFileStorage.this.readString(dis);
-                            }
-                        })));
-                    } /*else if (OrganizationSection.class.getName().equals(className)) {
+
+                    r.addSection(sectionType, new MultiTextSection(readList(dis, new ElementReader<String>() {
+                        @Override
+                        public String read() throws IOException {
+                            return DataStreamFileStorage.this.readString(dis);
+                        }
+                    })));
+                   /* //} *//*else if (OrganizationSection.class.getName().equals(className)) {
                         r.addSection(sectionType, new OrganizationSection(readList(dis, multiTextSectionSize, new ElementReader<Organization>() {
                             @Override
                             public Organization read() throws IOException {
@@ -186,7 +192,7 @@ public class DataStreamFileStorage extends FileStorage {
 
 
 
-                                        *//*new ElementReader<Organization.Period>() {
+                                        *//**//*new ElementReader<Organization.Period>() {
                                     @Override
                                     public Organization.Period read() throws IOException {
                                         return null;
@@ -195,11 +201,23 @@ public class DataStreamFileStorage extends FileStorage {
                                     }
                                 })));
                             }
-*//*
+*//**//*
                             };
                     }*/
 
-                } else if (multiTextSectionSize == -1) {
+                } else if (OrganizationSection.class.getName().equals(className)) {
+
+                    r.addSection(sectionType,
+                            new OrganizationSection(readList(dis, new ElementReader<Organization>() {
+                                @Override
+                                public Organization read() throws IOException {
+                                    return new Organization(new Link(dis.readUTF(), dis.readUTF()),
+                                            DataStreamFileStorage.this.readList(dis, () -> new Organization.Period(readLocalDate(dis), readLocalDate(dis), dis.readUTF(), dis.readUTF())));
+                                }
+                            })));
+
+
+                } else if (TextSection.class.getName().equals(className)) {
                     r.addSection(sectionType, new TextSection(readString(dis)));
                 }
             }
@@ -244,9 +262,9 @@ public class DataStreamFileStorage extends FileStorage {
 
     }
 
-    private <T> List<T> readList(DataInputStream dis, int size, ElementReader<T> reader) throws IOException {
+    private <T> List<T> readList(DataInputStream dis, ElementReader<T> reader) throws IOException {
 
-        //int size = dis.readInt();
+        int size = dis.readInt();
         List<T> list = new ArrayList<>(size);
         for (int i = 0; i < size; i++) {
             list.add(reader.read());

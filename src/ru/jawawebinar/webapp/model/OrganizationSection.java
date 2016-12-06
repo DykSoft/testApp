@@ -20,6 +20,10 @@ public class OrganizationSection extends Section {
         this.values = new LinkedList<>(Arrays.asList(values));
     }
 
+    public OrganizationSection(List<Organization> values) {
+        this.values = values;
+    }
+
     public List<Organization> getValues() {
         return values;
     }
