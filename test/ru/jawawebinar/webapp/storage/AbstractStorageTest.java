@@ -40,14 +40,14 @@ abstract public class AbstractStorageTest {
         if (storage.isSectionSupported()) {
 
             R1.addOrganizationSection(SectionType.EXPERIENCE,
-                    new Organization("Organization11", null,
-                            new Organization.Period(LocalDate.of(2005, Month.JANUARY, 1), Organization.Period.NOW, "position", "contetnt!"),
+                    new Organization("Organization11", "",
+                            new Organization.Period(LocalDate.of(2005, Month.JANUARY, 1), Organization.Period.NOW, "position", "conten1"),
                             new Organization.Period(2001, Month.MARCH, 2005, Month.JANUARY, "position2", "content2")),
                     new Organization("Organization12", "http://Organization12.ru"));
 
             R1.addOrganizationSection(SectionType.EDUCATION,
-                    new Organization("Institute", null,
-                            new Organization.Period(1996, Month.JANUARY, 2000, Month.DECEMBER, "aspirant", null),
+                    new Organization("Institute", "",
+                            new Organization.Period(1996, Month.JANUARY, 2000, Month.DECEMBER, "aspirant", "content2"),
                             new Organization.Period(2001, Month.MARCH, 2005, Month.JANUARY, "student", "IT facultet")),
                     new Organization("Organization12", "http://Organization12.ru"));
         }

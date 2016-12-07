@@ -33,25 +33,7 @@ public class DataStreamFileStorage extends FileStorage {
             writeString(dos, r.getHomePage());
 
             Map<ContactType, String> contacts = r.getContacts();
-   /*         dos.writeInt(contacts.size());
 
-            for (Map.Entry<ContactType, String> entry : contacts.entrySet()) {
-                dos.writeInt(entry.getKey().ordinal());
-                //dos.writeUTF(entry.getValue());
-                writeString(dos,entry.getValue());
-            }*/
-
-   /*         writeCollection(dos, contacts.entrySet(), new ElementWriter<Map.Entry<ContactType, String>>() {
-                @Override
-                public void write(Map.Entry<ContactType, String> entry) throws IOException {
-
-                    dos.writeInt(entry.getKey().ordinal());
-                    writeString(dos, entry.getValue());
-
-                }
-
-            });
-*/
             writeCollection(dos, contacts.entrySet(), entry -> {
 
                 dos.writeInt(entry.getKey().ordinal());
@@ -72,26 +54,9 @@ public class DataStreamFileStorage extends FileStorage {
 
                 if (section.getClass().equals(TextSection.class)) {
 
-                    dos.writeInt(-1);
-                    writeString(dos, TextSection.class.getName());
                     writeString(dos, ((TextSection) section).getValue());
 
                 } else if (section.getClass().equals(MultiTextSection.class)) {
-
-        /*            dos.writeInt(((MultiTextSection)section).getValues().size());
-
-                    for (String str : ((MultiTextSection)section).getValues()) {
-                        //dos.writeUTF(str);
-                        writeString(dos,str);
-                    }*/
-
-        /*            writeCollection(dos, ((MultiTextSection) section).getValues(), new ElementWriter<String>() {
-                        @Override
-                        public void write(String value) throws IOException {
-                               writeString(dos,value);
-                        }
-                    });
-*/
 
                     writeCollection(dos, ((MultiTextSection) section).getValues(), value -> writeString(dos, value));
 
@@ -147,31 +112,9 @@ public class DataStreamFileStorage extends FileStorage {
             for (int i = 0; i < sectionSize; i++) {
 
                 SectionType sectionType = SectionType.VALUES[dis.readInt()];
-
                 String className = readString(dis);
-                //int multiTextSectionSize = dis.readInt();
 
                 if (MultiTextSection.class.getName().equals(className)) {
-
-      /*              List<String> list = new ArrayList<>(multiTextSectionSize);
-
-                    for (int j = 0; j < multiTextSectionSize; j++) {
-
-                        //list.add(dis.readUTF());
-                        list.add(readString(dis));
-                    }
-
-                    r.addSection(sectionType, new MultiTextSection(list));*/
-
-/*                    List<String> list = readList(dis, new ElementReader<String>() {
-                        @Override
-                        public String read() throws IOException {
-                            return readString(dis);
-                        }
-                    });
-
-                    r.addSection(sectionType, new MultiTextSection(list));*/
-
 
                     r.addSection(sectionType, new MultiTextSection(readList(dis, new ElementReader<String>() {
                         @Override
@@ -179,31 +122,6 @@ public class DataStreamFileStorage extends FileStorage {
                             return DataStreamFileStorage.this.readString(dis);
                         }
                     })));
-                   /* //} *//*else if (OrganizationSection.class.getName().equals(className)) {
-                        r.addSection(sectionType, new OrganizationSection(readList(dis, multiTextSectionSize, new ElementReader<Organization>() {
-                            @Override
-                            public Organization read() throws IOException {
-                                return new Organization(new Link(dis.readUTF(),dis.readUTF(), readList(dis, dis.readInt(), new ElementReader<T>() {
-                                            @Override
-                                            public T read() throws IOException {
-                                                return null;
-                                            }
-                                        }
-
-
-
-                                        *//**//*new ElementReader<Organization.Period>() {
-                                    @Override
-                                    public Organization.Period read() throws IOException {
-                                        return null;
-
-                                        //return new Organization.Period(readLocalDate(dis),readLocalDate(dis),readString(dis),readString(dis));
-                                    }
-                                })));
-                            }
-*//**//*
-                            };
-                    }*/
 
                 } else if (OrganizationSection.class.getName().equals(className)) {
 
