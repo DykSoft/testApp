@@ -69,7 +69,7 @@ abstract public class AbstractStorageTest {
         R2 = new Resume("Полное Имя2", "location11");
         R2.addContact(ContactType.SKYPE, "skype2");
         R2.addContact(ContactType.PHONE, "22222");
-        R3 = new Resume("Полное Имя3", null);
+        R3 = new Resume("Полное Имя3", "location12");
 
         storage.clear();
 

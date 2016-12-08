@@ -31,4 +31,24 @@ public class OrganizationSection extends Section {
     public void setValues(List<Organization> values) {
         this.values = values;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        OrganizationSection that = (OrganizationSection) o;
+
+        return values != null ? values.equals(that.values) : that.values == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return values != null ? values.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return values.toString();
+    }
 }

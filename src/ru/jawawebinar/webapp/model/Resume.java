@@ -57,9 +57,9 @@ import java.util.*;
 
     public Resume(String uuid, String fullName, String location) {
 
-        //Objects.requireNonNull(uuid,"uuid is null");
-        //Objects.requireNonNull(fullName,"full name is null");
-        //Objects.requireNonNull(location,"location is null");
+        Objects.requireNonNull(uuid,"uuid is null");
+        Objects.requireNonNull(fullName,"full name is null");
+        Objects.requireNonNull(location,"location is null");
 
         this.uuid = uuid;
         this.fullName = fullName;
@@ -91,7 +91,6 @@ import java.util.*;
     public String getContact(ContactType type) {
         return contacts.get(type);
     }
-
 
     public String getFullName() {
         return fullName;

@@ -1,6 +1,7 @@
 package ru.jawawebinar.webapp.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * denis
@@ -16,15 +17,13 @@ public class Link implements Serializable {
 
 
     public Link(String name, String url) {
+        Objects.requireNonNull(name,"name is null");
         this.name = name;
-        this.url = url;
+        this.url = url == null ? "" : url;
     }
 
     public Link(Link link) {
         this(link.name,link.url);
-/*
-        this.name = link.name;
-        this.url = link.url;*/
     }
 
     public Link() {

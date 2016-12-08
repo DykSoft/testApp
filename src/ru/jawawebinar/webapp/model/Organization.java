@@ -1,13 +1,17 @@
 package ru.jawawebinar.webapp.model;
 
+import ru.jawawebinar.webapp.util.LocalDateAdapter;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * denis
@@ -54,8 +58,13 @@ public class Organization implements Serializable {
         //public class Period {
 
         public static final LocalDate NOW = LocalDate.of(3000, 1, 1);
+
+        @XmlJavaTypeAdapter(LocalDateAdapter.class)
         private LocalDate startDate;
+
+        @XmlJavaTypeAdapter(LocalDateAdapter.class)
         private LocalDate endDate;
+
         private String position;
         private String content;
 
@@ -63,8 +72,10 @@ public class Organization implements Serializable {
         }
 
         public Period(LocalDate startDate, LocalDate endDate, String position, String content) {
+            Objects.requireNonNull(startDate,"startDate is null");
+            Objects.requireNonNull(position,"position is null");
             this.startDate = startDate;
-            this.endDate = endDate;
+            this.endDate = endDate == null ? NOW : endDate;
             this.position = position;
             this.content = content;
         }
