@@ -1,8 +1,8 @@
 package lesson03;
 
-import ru.jawawebinar.webapp.model.ContactNotUsed;
-import ru.jawawebinar.webapp.model.ContactType;
-import ru.jawawebinar.webapp.model.Link;
+import ru.javawebinar.webapp.model.ContactNotUsed;
+import ru.javawebinar.webapp.model.ContactType;
+import ru.javawebinar.webapp.model.Link;
 
 import java.lang.reflect.Field;
 

@@ -1,9 +1,5 @@
 package lesson05;
 
-import ru.jawawebinar.webapp.model.Resume;
-
-import java.util.Comparator;
-
 /**
  * denis
  * 12.11.2016.

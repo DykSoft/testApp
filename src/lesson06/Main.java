@@ -1,6 +1,6 @@
 package lesson06;
 
-import ru.jawawebinar.webapp.model.Resume;
+import ru.javawebinar.webapp.model.Resume;
 
 import java.util.ArrayList;
 import java.util.Collections;

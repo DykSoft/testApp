@@ -1,7 +1,7 @@
 package lesson04;
 
-import ru.jawawebinar.webapp.model.Organization;
-import ru.jawawebinar.webapp.model.Resume;
+import ru.javawebinar.webapp.model.Organization;
+import ru.javawebinar.webapp.model.Resume;
 
 import java.util.HashMap;
 import java.util.Map;

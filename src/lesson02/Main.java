@@ -1,6 +1,6 @@
 package lesson02;
 
-import ru.jawawebinar.webapp.model.Link;
+import ru.javawebinar.webapp.model.Link;
 
 /**
  * denis

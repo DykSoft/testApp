@@ -1,7 +1,7 @@
 package lesson05;
 
 import org.junit.*;
-import ru.jawawebinar.webapp.WebAppException;
+import ru.javawebinar.webapp.WebAppException;
 
 import static org.junit.Assert.assertEquals;
 

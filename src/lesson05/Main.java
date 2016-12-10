@@ -1,7 +1,7 @@
 package lesson05;
 
-import ru.jawawebinar.webapp.model.ContactType;
-import ru.jawawebinar.webapp.model.Resume;
+import ru.javawebinar.webapp.model.ContactType;
+import ru.javawebinar.webapp.model.Resume;
 
 import java.util.Arrays;
 import java.util.Collections;
