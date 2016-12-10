@@ -52,12 +52,6 @@ public class MapStorage extends AbstractStorage<String> {
     @Override
     public List<Resume> doGetAllSorted() {
 
-
-/*        ArrayList<Resume> list = new ArrayList<>();
-        for(Map.Entry<String,Resume> entry: map.entrySet()) {
-            list.add(entry.getValue());
-        }*/
-
         return new ArrayList<>(map.values());
 
     }

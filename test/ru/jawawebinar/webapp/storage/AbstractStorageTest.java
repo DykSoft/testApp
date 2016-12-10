@@ -22,6 +22,8 @@ import java.util.List;
  */
 abstract public class AbstractStorageTest {
 
+    public static final String FILE_STORAGE = "./file_storage";
+
     private Resume R1, R2, R3;
     protected IStorage storage;
 
