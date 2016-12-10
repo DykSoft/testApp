@@ -8,7 +8,7 @@
           <element id="module-output" name="testApp" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="lib" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/gson-2.8.0.jar" />
         </element>
       </element>
     </root>
