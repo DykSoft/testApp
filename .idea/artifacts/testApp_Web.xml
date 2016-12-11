@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="war" name="testApp:Web">
     <output-path>$PROJECT_DIR$/out/artifacts/testApp_Web</output-path>
-    <root id="archive" name="testApp.war">
+    <root id="archive" name="testapp.war">
       <element id="artifact" artifact-name="testApp:Web exploded" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="lib">
