@@ -1,5 +1,7 @@
 package ru.javawebinar.webapp.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -10,19 +12,15 @@ import java.util.Objects;
  * denis
  * 01.11.2016.
  */
-public class MultiTextSection extends Section implements Serializable {
+public class MultiTextSection extends Section {
 
     static final long serialVersionUID = 1L;
 
-    private List<String> values;
-
-    public MultiTextSection() {
-    }
+    private List<String> values = new LinkedList<>();
 
     public MultiTextSection(String... values) {
-        this(new LinkedList<String>(Arrays.asList(values)));
+        this(new LinkedList<>(Arrays.asList(values)));
     }
-
 
     public MultiTextSection(List<String> values) {
         this.values = values;
@@ -32,9 +30,12 @@ public class MultiTextSection extends Section implements Serializable {
         return values;
     }
 
+    public MultiTextSection() {
+    }
+
     @Override
     public int hashCode() {
-        return Objects.hash(values);
+        return values != null ? values.hashCode() : 0;
     }
 
     @Override
@@ -47,5 +48,10 @@ public class MultiTextSection extends Section implements Serializable {
         }
         final MultiTextSection other = (MultiTextSection) obj;
         return Objects.equals(this.values, other.values);
+    }
+
+    @Override
+    public String toString() {
+        return values.toString();
     }
 }

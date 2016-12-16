@@ -31,6 +31,8 @@ abstract public class AbstractStorageTest {
     @Before
     public void setUp() throws Exception {
 
+        storage.clear();
+
         R1 = new Resume("Полное Имя1", "location1");
         R1.addContact(ContactType.MAIL, "mail1@ya.ru");
         R1.addContact(ContactType.PHONE, "11111");
@@ -69,11 +71,16 @@ abstract public class AbstractStorageTest {
         R1.addSection(SectionType.OBJECTIVE,textSection);*/
 
         R2 = new Resume("Полное Имя2", "location11");
+        R2.addMultiTextSection(SectionType.ACHIEVEMENT,"Achivment14","Achivment14");
+        R2.addMultiTextSection(SectionType.QUALIFICATION,"Java1","SQL1");
+
         R2.addContact(ContactType.SKYPE, "skype2");
         R2.addContact(ContactType.PHONE, "22222");
-        R3 = new Resume("Полное Имя3", "location12");
 
-        storage.clear();
+        R3 = new Resume("Полное Имя5", "location15");
+        R3.addMultiTextSection(SectionType.ACHIEVEMENT,"Achivment15","Achivment15");
+        R3.addMultiTextSection(SectionType.QUALIFICATION,"Java7","SQL8");
+
 
         storage.save(R1);
         storage.save(R2);

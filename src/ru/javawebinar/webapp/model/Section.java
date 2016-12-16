@@ -19,9 +19,5 @@ import java.io.Serializable;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Section implements Serializable {
-
-    /*protected SectionType type;*/
-
-    public Section() {
-    }
+    static final long serialVersionUID = 1L;
 }

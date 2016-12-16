@@ -54,7 +54,7 @@
                             <td><a href="resume?uuid=${resume.uuid}&action=edit"><img src="img/pencil.png"></a></td>
                         </tr>
                     </c:forEach>
-                    <% for (Resume r : resumes) {
+                   <%-- <% for (Resume r : resumes) {
                         request.setAttribute("r", r);
                     %>
                     <tr>
@@ -67,7 +67,7 @@
                     </tr>
                     <%
                         }
-                    %>
+                    %>--%>
                 </table>
             </td>
         </tr>
