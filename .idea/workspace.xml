@@ -12,9 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5bd93b9-6a1f-4965-a933-1c2a33446e2d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/logging.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ru/javawebinar/webapp/WebAppConfig.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/edit.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="testApp.iws" />
@@ -1185,7 +1182,7 @@
       <workItem from="1481830452448" duration="5780000" />
       <workItem from="1481910076802" duration="10946000" />
       <workItem from="1482006909696" duration="177000" />
-      <workItem from="1482087721351" duration="3087000" />
+      <workItem from="1482087721351" duration="3101000" />
     </task>
     <task id="LOCAL-00001" summary="org">
       <created>1481060726628</created>
@@ -1278,7 +1275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481924290858</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Modify resume servlet">
+      <created>1482093961176</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1482093961176</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1314,7 +1318,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47100000" />
+    <option name="totallyTimeSpent" value="47114000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
