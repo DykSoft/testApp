@@ -1,6 +1,5 @@
 <%@ page import="ru.javawebinar.webapp.model.*" %>
 <%@ page import="ru.javawebinar.webapp.web.HtmlUtil" %>
-<%@ page import="static ru.javawebinar.webapp.model.SectionType.QUALIFICATION" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -31,7 +30,7 @@
     <title>Резюме ${resume.fullName}</title>
 </head>
 <body>
-<%--<jsp:include page="/WEB-INF/jsp/fragments/header.jsp"/>--%>
+<jsp:include page="/WEB-INF/jsp/fragments/header.jsp"/>
 <section>
     <h2>${resume.fullName}</h2>
     <c:if test="${not empty  resume.homePage}">
@@ -66,7 +65,7 @@
                 <%
                 break;
             case ACHIEVEMENT:
-            case QUALIFICATION:
+            case QUALIFICATIONS:
 
         %>
         <td>
@@ -110,6 +109,6 @@
 </table>
     <button onclick="window.history.back()">ОК</button>
 </section>
-<%--<jsp:include page="/WEB-INF/jsp/fragments/footer.jsp"/>--%>
+<jsp:include page="/WEB-INF/jsp/fragments/footer.jsp"/>
 </body>
 </html>

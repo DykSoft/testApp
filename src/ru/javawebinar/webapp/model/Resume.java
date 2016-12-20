@@ -207,6 +207,11 @@ import java.util.*;
 
     }
 
+    public void removeContact(ContactType type) {
+        contacts.remove(type);
+
+    }
+
     /*    private String getEmail(List<Contact> list) {
         for(Contact c: list) {
             if(c.getType() == ContactType.MAIL) {

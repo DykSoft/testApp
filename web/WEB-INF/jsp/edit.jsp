@@ -30,7 +30,7 @@
     <title>Резюме ${resume.fullName}</title>
 </head>
 <body>
-<%--<jsp:include page="fragments/header.jsp"/>--%>
+<jsp:include page="fragments/header.jsp"/>
 <section>
     <form id="resume" method="post" action="resume" enctype="application/x-www-form-urlencoded">
         <input type="hidden" name="uuid" value="${resume.uuid}">
@@ -65,6 +65,6 @@
     </form>
 
 </section>
-<%--<jsp:include page="fragments/footer.jsp"/>--%>
+<jsp:include page="fragments/footer.jsp"/>
 </body>
 </html>
