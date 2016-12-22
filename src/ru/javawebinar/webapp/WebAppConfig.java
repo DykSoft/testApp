@@ -1,6 +1,7 @@
 package ru.javawebinar.webapp;
 
 import ru.javawebinar.webapp.storage.IStorage;
+import ru.javawebinar.webapp.storage.SqlStorage;
 import ru.javawebinar.webapp.storage.XmlFileStorage;
 //import ru.javawebinar.webapp.storage.SqlStorage;
 
@@ -26,39 +27,22 @@ public class WebAppConfig {
     }
 
     private WebAppConfig() {
-/*        try (InputStream is = getClass().getClassLoader().getResourceAsStream("logging.properties");
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream("logging.properties");
              InputStream webAppIs = getClass().getClassLoader().getResourceAsStream("webapp.properties")
         ) {
             LogManager.getLogManager().readConfiguration(is);
 
             Properties appProps = new Properties();
             appProps.load(webAppIs);
-            //storage = new XmlFileStorage(appProps.getProperty("storage.dir"));
-            storage = new SqlStorage(
-                    appProps.getProperty("db.url"),
-                    appProps.getProperty("db.user"),
-                    appProps.getProperty("db.password")
-            );
-        } catch (Exception e) {
-            throw new IllegalStateException(e);
-        }*/
-
-        try (InputStream is = getClass().getClassLoader().getResourceAsStream("logging.properties")
-             /*InputStream webAppIs = getClass().getClassLoader().getResourceAsStream("webapp.properties")*/
-        ) {
-            LogManager.getLogManager().readConfiguration(is);
-
-            //Properties appProps = new Properties();
-            //appProps.load(webAppIs);
-            storage = new XmlFileStorage("C:\\java\\java_ee_project\\testApp\\file_storage");
+            storage = new XmlFileStorage(appProps.getProperty("storage.dir"));
 /*            storage = new SqlStorage(
                     appProps.getProperty("db.url"),
                     appProps.getProperty("db.user"),
-                    appProps.getProperty("db.password")
-            );*/
+                    appProps.getProperty("db.password"));*/
         } catch (Exception e) {
             throw new IllegalStateException(e);
         }
+
 
     }
 }
