@@ -34,11 +34,11 @@ public class WebAppConfig {
 
             Properties appProps = new Properties();
             appProps.load(webAppIs);
-            storage = new XmlFileStorage(appProps.getProperty("storage.dir"));
-/*            storage = new SqlStorage(
+            //storage = new XmlFileStorage(appProps.getProperty("storage.dir"));
+            storage = new SqlStorage(
                     appProps.getProperty("db.url"),
                     appProps.getProperty("db.user"),
-                    appProps.getProperty("db.password"));*/
+                    appProps.getProperty("db.password"));
         } catch (Exception e) {
             throw new IllegalStateException(e);
         }
