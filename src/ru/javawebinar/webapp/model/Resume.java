@@ -46,8 +46,6 @@ import java.util.*;
     }
 
     public Resume(String fullName, String location) {
-        //this.fullName = fullName;
-        //this.location = location;
         this(UUID.randomUUID().toString(),fullName, location);
     }
 
@@ -56,16 +54,24 @@ import java.util.*;
     }
 
     public Resume(String uuid, String fullName, String location) {
+       this(uuid, fullName, location, "");
+    }
+
+    public Resume(String uuid, String fullName, String location, String homePage) {
 
         Objects.requireNonNull(uuid,"uuid is null");
         Objects.requireNonNull(fullName,"full name is null");
         Objects.requireNonNull(location,"location is null");
+        Objects.requireNonNull(homePage,"homePage is null");
 
         this.uuid = uuid;
         this.fullName = fullName;
         this.location = location;
+        this.homePage = homePage;
 
     }
+
+
 
     public void addSection(SectionType type, Section section) {
         sections.put(type, section);
