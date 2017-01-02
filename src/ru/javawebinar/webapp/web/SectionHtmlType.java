@@ -40,7 +40,7 @@ public enum SectionHtmlType {
     ORGANIZATION {
         @Override
         public String toHtml(Section section, SectionType type) {
-            return section.toString();
+            return section == null ? "" : section.toString();
         }
 
         @Override

@@ -20,13 +20,11 @@ import java.util.*;
 
     static final long serialVersionUID = 1L;
 
-    //private final String uuid;
     private String uuid;
     private String fullName;
-    private String location;
-    private String homePage;
+    private String location = "";
+    private String homePage = "";
 
-    //private List<Contact> contacts = new LinkedList<>();
     private Map<ContactType, String> contacts = new EnumMap<>(ContactType.class);
     private Map<SectionType, Section> sections = new EnumMap<>(SectionType.class);
 
@@ -39,10 +37,6 @@ import java.util.*;
         }*/
 
 
-    }
-
-
-    public Resume() {
     }
 
     public Resume(String fullName, String location) {
@@ -71,24 +65,17 @@ import java.util.*;
 
     }
 
-
+    public Resume() {
+    }
 
     public void addSection(SectionType type, Section section) {
         sections.put(type, section);
 
     }
 
-/*    public void addContact(Contact contact) {
-        contacts.add(contact);
-    }*/
-
     public void addContact(ContactType type, String value) {
         contacts.put(type,value);
     }
-
-/*    public List<Contact> getContacts() {
-        return contacts;
-    }*/
 
     public Map<ContactType, String> getContacts() {
         return contacts;
@@ -194,8 +181,12 @@ import java.util.*;
     @Override
     public String toString() {
         return "Resume{" +
-                "fullName='" + fullName + '\'' +
-                ", uuid='" + uuid + '\'' +
+                "uuid='" + uuid + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", location='" + location + '\'' +
+                ", homePage='" + homePage + '\'' +
+                ", contacts=" + contacts +
+                ", sections=" + sections +
                 '}';
     }
 
@@ -217,6 +208,7 @@ import java.util.*;
         contacts.remove(type);
 
     }
+
 
     /*    private String getEmail(List<Contact> list) {
         for(Contact c: list) {

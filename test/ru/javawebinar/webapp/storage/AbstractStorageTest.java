@@ -57,8 +57,6 @@ abstract public class AbstractStorageTest {
         }
 
 
-        //TODO add EXPERIENCE and EDUCATION
-
  /*       List<String> list = new ArrayList<>();
         list.add("adadadad123");
         list.add("dadadadad434");

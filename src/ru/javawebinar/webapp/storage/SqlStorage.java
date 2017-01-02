@@ -7,7 +7,7 @@ import ru.javawebinar.webapp.sql.Sql;
 import ru.javawebinar.webapp.sql.SqlExecutor;
 
 import java.sql.*;
-import java.util.Collection;
+import java.util.*;
 
 import static jdk.nashorn.internal.runtime.Debug.id;
 
@@ -60,7 +60,8 @@ public class SqlStorage implements IStorage {
             ps.setString(4, r.getUuid());
             if (ps.executeUpdate() == 0) {
                 throw new WebAppException("Resume not found", r);
-            };
+            }
+            ;
             return null;
         });
 
@@ -68,23 +69,20 @@ public class SqlStorage implements IStorage {
 
     @Override
     public Resume load(final String uuid) {
-        return sql.execute("SELECT * FROM resume r WHERE r.uuid = ?", new SqlExecutor<Resume>() {
-            @Override
-            public Resume execute(PreparedStatement ps) throws SQLException {
+        return sql.execute("SELECT * FROM resume r WHERE r.uuid = ?", ps -> {
 
-                ps.setString(1, uuid);
-                ResultSet rs = ps.executeQuery();
-                if (!rs.next()) {
-                    throw new WebAppException("Resume " + uuid + " is not exist");
-                }
-
-                Resume r = new Resume(uuid,
-                        rs.getString("full_name"),
-                        rs.getString("location"),
-                        rs.getString("home_page"));
-
-                return r;
+            ps.setString(1, uuid);
+            ResultSet rs = ps.executeQuery();
+            if (!rs.next()) {
+                throw new WebAppException("Resume " + uuid + " is not exist");
             }
+
+            Resume r = new Resume(uuid,
+                    rs.getString("full_name"),
+                    rs.getString("location"),
+                    rs.getString("home_page"));
+
+            return r;
         });
     }
 
@@ -103,10 +101,36 @@ public class SqlStorage implements IStorage {
 
     @Override
     public Collection<Resume> getAllSorted() {
+        //TODO Проверить !!!!
 
-        //sql.execute("SELECT * FROM resume r ORDER BY r.full_name, r.uuid");
+        return sql.execute("SELECT * FROM resume r ORDER BY r.full_name, r.uuid",
+                ResultSet.TYPE_SCROLL_INSENSITIVE,
+                ResultSet.CONCUR_UPDATABLE,
+                ps -> {
 
-        return null;
+                    ResultSet rs = ps.executeQuery();
+
+                    if (!rs.first()) {
+                        throw new WebAppException("Resumes is not found!");
+                    }
+
+                    List<Resume> list = new ArrayList<Resume>();
+
+                    do {
+
+                        list.add(new Resume(rs.getString("uuid"),
+                                rs.getString("full_name"),
+                                rs.getString("location"),
+                                rs.getString("home_page")));
+
+
+                    } while (rs.next());
+
+
+                    return list;
+
+                });
+
     }
 
     @Override

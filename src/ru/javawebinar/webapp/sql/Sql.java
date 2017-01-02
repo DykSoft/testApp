@@ -4,6 +4,7 @@ import ru.javawebinar.webapp.WebAppException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -45,6 +46,21 @@ public class Sql {
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
              return executor.execute(ps);
+
+        } catch (SQLException e) {
+
+            throw new WebAppException("SQL failed: " + sql, e);
+        }
+
+
+    }
+
+    public <T> T execute(String sql, int resultSetType, int resultSetConcurrency, SqlExecutor<T> executor) {
+
+        try (Connection conn = connectionFactory.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql, resultSetType, resultSetConcurrency)) {
+
+            return executor.execute(ps);
 
         } catch (SQLException e) {
 

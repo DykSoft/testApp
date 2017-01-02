@@ -43,7 +43,7 @@
             <dd><input type="text" name="location" size=50 value="${resume.location}"></dd>
         </dl>
         <dl>
-            <dt>Домашняя старница:</dt>
+            <dt>Домашняя страница:</dt>
             <dd><input type="text" name="home_page" size=50 value="${resume.homePage}"></dd>
         </dl>
         <h3>Контакты:</h3>
@@ -63,6 +63,8 @@
         <button type="submit">Сохранить</button>
         <button onclick="window.history.back()">Отменить</button>
     </form>
+
+    <%-- TODO implement ACHIEVEMENT, QUALIFICATIONS, OBJECTIVE --%>
 
 </section>
 <jsp:include page="fragments/footer.jsp"/>

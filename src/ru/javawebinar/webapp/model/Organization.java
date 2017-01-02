@@ -19,6 +19,10 @@ import java.util.Objects;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Organization implements Serializable {
+    static final long serialVersionUID = 1L;
+
+    private Link link = Link.EMPTY;
+    private List<Period> periods = new LinkedList<>();
 
     public Link getLink() {
         return link;
@@ -36,11 +40,6 @@ public class Organization implements Serializable {
         this.periods = periods;
     }
 
-    static final long serialVersionUID = 1L;
-
-    private Link link;
-    private List<Period> periods;
-
     public Organization() {
     }
 
@@ -55,8 +54,8 @@ public class Organization implements Serializable {
 
     @XmlAccessorType(XmlAccessType.FIELD)
     public static class Period implements Serializable {
-        //public class Period {
 
+        static final long serialVersionUID = 1L;
         public static final LocalDate NOW = LocalDate.of(3000, 1, 1);
 
         @XmlJavaTypeAdapter(LocalDateAdapter.class)

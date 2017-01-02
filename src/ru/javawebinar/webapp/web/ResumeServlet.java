@@ -3,6 +3,7 @@ package ru.javawebinar.webapp.web;
 import ru.javawebinar.webapp.WebAppConfig;
 import ru.javawebinar.webapp.model.ContactType;
 import ru.javawebinar.webapp.model.Resume;
+import ru.javawebinar.webapp.model.SectionType;
 import ru.javawebinar.webapp.storage.IStorage;
 import ru.javawebinar.webapp.storage.XmlFileStorage;
 import ru.javawebinar.webapp.util.Util;
@@ -13,6 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Writer;
+import java.util.*;
+import java.util.function.IntPredicate;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Created by kdeni on 10.12.2016.
@@ -43,6 +48,24 @@ public class ResumeServlet extends javax.servlet.http.HttpServlet {
             }
 
         }
+
+        for (SectionType sectionType : SectionType.values()) {
+
+            String value = request.getParameter(sectionType.name());
+            if (sectionType.getHtmlType() == SectionHtmlType.ORGANIZATION) {
+                continue;
+            }
+
+            if (value == null || value.isEmpty()) {
+                r.getSections().remove(sectionType);
+            } else {
+
+                r.addSection(sectionType, sectionType.getHtmlType().createSection(value));
+
+            }
+
+        }
+
 
         if (Util.isEmpty(uuid)) {
             storage.save(r);
