@@ -19,7 +19,7 @@ public class Sql {
     }
 
     public void execute(String sql) {
-        
+
         execute(sql, new SqlExecutor<Void>() {
             @Override
             public Void execute(PreparedStatement ps) throws SQLException {
@@ -45,7 +45,7 @@ public class Sql {
         try (Connection conn = connectionFactory.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-             return executor.execute(ps);
+            return executor.execute(ps);
 
         } catch (SQLException e) {
 
@@ -69,4 +69,28 @@ public class Sql {
 
 
     }
+
+
+    public <T> T execute(SqlTransaction<T> executor) {
+
+        try (Connection conn = connectionFactory.getConnection()) {
+
+            try {
+                conn.setAutoCommit(false);
+                T res = executor.execute(conn);
+                conn.commit();
+                return res;
+            } catch (SQLException e) {
+                conn.rollback();
+                throw e;
+            }
+
+        } catch (SQLException e) {
+            throw new WebAppException("Transaction failed", e);
+        }
+
+
+    }
+
+
 }

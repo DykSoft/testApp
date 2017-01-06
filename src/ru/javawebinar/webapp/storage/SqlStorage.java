@@ -1,10 +1,12 @@
 package ru.javawebinar.webapp.storage;
 
 import ru.javawebinar.webapp.WebAppException;
+import ru.javawebinar.webapp.model.ContactType;
 import ru.javawebinar.webapp.model.Resume;
 import ru.javawebinar.webapp.sql.ConnectionFactory;
 import ru.javawebinar.webapp.sql.Sql;
 import ru.javawebinar.webapp.sql.SqlExecutor;
+import ru.javawebinar.webapp.sql.SqlTransaction;
 
 import java.sql.*;
 import java.util.*;
@@ -38,22 +40,84 @@ public class SqlStorage implements IStorage {
     @Override
     public void save(Resume r) {
 
-        sql.execute("INSERT INTO resume (uuid, full_name, location, home_page) VALUES (?,?,?,?)", ps -> {
+        sql.execute((SqlTransaction<Void>) conn -> {
+
+            try (PreparedStatement ps = conn.prepareStatement("INSERT INTO resume (uuid, full_name, location, home_page) VALUES (?,?,?,?)")) {
+                ps.setString(1, r.getUuid());
+                ps.setString(2, r.getFullName());
+                ps.setString(3, r.getLocation());
+                ps.setString(4, r.getHomePage());
+                ps.execute();
+            }
+
+            insertContact(conn, r);
+            return null;
+        });
+
+/*        sql.execute("INSERT INTO resume (uuid, full_name, location, home_page) VALUES (?,?,?,?)", ps -> {
             ps.setString(1, r.getUuid());
             ps.setString(2, r.getFullName());
             ps.setString(3, r.getLocation());
             ps.setString(4, r.getHomePage());
             ps.execute();
             return null;
-        });
+        });*/
 
 
+    }
+
+    private void insertContact(Connection conn, Resume r) throws SQLException {
+
+        try (PreparedStatement ps = conn.prepareStatement("INSERT INTO contact (resume_uuid, type, value) VALUES (?,?,?)")) {
+
+            for (Map.Entry<ContactType, String> e : r.getContacts().entrySet()) {
+
+                ps.setString(1, r.getUuid());
+                ps.setString(2, e.getKey().name());
+                ps.setString(3, e.getValue());
+                ps.addBatch();
+
+            }
+
+            ps.executeBatch();
+
+        }
+
+
+    }
+
+    private void deleteContacts(Connection conn, Resume r) throws SQLException {
+        try (PreparedStatement ps = conn.prepareStatement("DELETE FROM contact WHERE resume_uuid = ?")) {
+
+            ps.setString(1, r.getUuid());
+            ps.execute();
+
+        }
     }
 
     @Override
     public void update(Resume r) {
 
-        sql.execute("UPDATE resume SET full_name = ?, location = ?, home_page = ? WHERE uuid = ?", ps -> {
+        sql.execute((SqlTransaction<Void>) conn -> {
+
+            try (PreparedStatement ps = conn.prepareStatement("UPDATE resume SET full_name = ?, location = ?, home_page = ? WHERE uuid = ?")) {
+
+                ps.setString(1, r.getFullName());
+                ps.setString(2, r.getLocation());
+                ps.setString(3, r.getHomePage());
+                ps.setString(4, r.getUuid());
+                if (ps.executeUpdate() == 0) {
+                    throw new WebAppException("Resume not found", r);
+                }
+
+            }
+            deleteContacts(conn,r);
+            insertContact(conn, r);
+            return null;
+        });
+
+
+       /* sql.execute("UPDATE resume SET full_name = ?, location = ?, home_page = ? WHERE uuid = ?", ps -> {
             ps.setString(1, r.getFullName());
             ps.setString(2, r.getLocation());
             ps.setString(3, r.getHomePage());
@@ -63,13 +127,17 @@ public class SqlStorage implements IStorage {
             }
             ;
             return null;
-        });
+        });*/
 
     }
 
     @Override
     public Resume load(final String uuid) {
-        return sql.execute("SELECT * FROM resume r WHERE r.uuid = ?", ps -> {
+        return sql.execute(
+                "SELECT *\n" +
+                "     FROM resume r\n" +
+                "     LEFT JOIN contact c ON r.uuid = c.resume_uuid\n" +
+                "    WHERE r.uuid = ?", ps -> {
 
             ps.setString(1, uuid);
             ResultSet rs = ps.executeQuery();
