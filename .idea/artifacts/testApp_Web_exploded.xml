@@ -10,6 +10,7 @@
         <element id="directory" name="lib">
           <element id="file-copy" path="$PROJECT_DIR$/lib/gson-2.8.0.jar" />
           <element id="library" level="project" name="jstl:jstl:1.2" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/postgresql-9.4-1201.jdbc4.jar" />
         </element>
       </element>
     </root>

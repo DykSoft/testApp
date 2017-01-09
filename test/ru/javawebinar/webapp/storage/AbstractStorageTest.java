@@ -11,10 +11,7 @@ import ru.javawebinar.webapp.model.Organization;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 /**
  * denis
@@ -171,7 +168,8 @@ abstract public class AbstractStorageTest {
                 return 0;
             }
         });
-        Assert.assertEquals(list,storage.getAllSorted());
+
+         Assert.assertEquals(list,new ArrayList<Resume>(storage.getAllSorted()));
 
     }
 
